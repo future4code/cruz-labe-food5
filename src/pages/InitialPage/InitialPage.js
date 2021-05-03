@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import Teaser from "../../components/Teaser";
 
-const InitialPage =()=> {
-    return (
-        <div>
-             <h1>InitialPage</h1>
-        </div>
-    )
-}
+const InitialPage = () => {
+  return (
+    <div>
+      <Teaser />
+    </div>
+  );
+};
 
-export default InitialPage
+export default InitialPage;
