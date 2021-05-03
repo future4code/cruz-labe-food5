@@ -5,7 +5,7 @@
 
 
 
-<img src= 'https://vocesa.abril.com.br/wp-content/uploads/2021/03/vcsa274_ti_tt.png' width='30px'/> Integrantes:
+<img src= 'https://vocesa.abril.com.br/wp-content/uploads/2021/03/vcsa274_ti_tt.png' width='45px'/> Integrantes:
 
 • Beatriz Lisboa
 
