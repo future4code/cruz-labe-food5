@@ -14,7 +14,7 @@ Integrantes:
 
 • Leonardo Federmann
 
-• Thiago Mendes Jatobá
+• Thiago Jatobá
 
 🔗 Link do Surge:
 
