@@ -4,7 +4,8 @@
 ![image](https://user-images.githubusercontent.com/77943169/116927678-5afffc00-ac32-11eb-87d1-aab6e7a5d162.png)
 
 
-Integrantes:
+
+<img src= 'https://vocesa.abril.com.br/wp-content/uploads/2021/03/vcsa274_ti_tt.png' width='30px'/> Integrantes:
 
 • Beatriz Lisboa
 
@@ -18,7 +19,10 @@ Integrantes:
 
 • Thiago Jatobá
 
+
 🔗 Link do Surge:
+
+
 
 #🎨 🧑 🎨 layout:
 
