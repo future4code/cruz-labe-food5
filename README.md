@@ -22,11 +22,17 @@ Integrantes:
 
 #🎨 🧑 🎨 layout:
 
-• Componentes estilizados • MaterialUi • Trello • React-Dom
+• Componentes estilizados 
+
+• MaterialUi 
+
+• React-Dom	
+
+• Trello: https://trello.com/invite/b/VZ2UWjyA/1c5f50f8c23c8f5c25161c11086f3d6a/template-kanban
 
 😎🌟 O que Funciona:
 
-•
+• Página de Abertura (Teaser)
 
 •
 
@@ -34,4 +40,4 @@ Integrantes:
 
 ❎ O que não funciona:
 
-•
+• 
