@@ -2,14 +2,14 @@ import React from 'react'
 import { ScreenContainer, Form, SignUpContainer } from './styled'
 import logo from "../../assets/logo-future-eats-invert.png"
 import { Button, TextField } from '@material-ui/core'
-import useForm from '../../hooks/useForm'
-import {useHistory} from 'react-router-dom'
+import { useForm} from '../../hooks/useForm'
+import { useHistory } from 'react-router-dom'
 import {goToSignUpPage} from '../../routes/coordinator'
 import {login} from '../../services/users'
 
 const LoginPage =() => {
     const history = useHistory()
-    const [form, handleForm, resetForm] = useForm({email:'', password:''})
+    const [form, setForm, handleForm, resetForm] = useForm({email:'', password:''})
 
     const onSubmitForm = (event) => {
         event.preventDefault()
