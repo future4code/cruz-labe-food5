@@ -15,7 +15,6 @@ const GlobalState = (props) => {
                 {props.children}
         </GlobalStateContext.Provider>
     )
-
 }
 
 export default GlobalState
