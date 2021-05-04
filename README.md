@@ -3,6 +3,11 @@
 
 ![image](https://user-images.githubusercontent.com/77943169/116927678-5afffc00-ac32-11eb-87d1-aab6e7a5d162.png)
 
+📝️ Sobre
+Projeto final do curso de Frontend da Labenu. 
+A ideia foi desenvolver um aplicativo parecido com o IFood, onde o usuário faz os pedidos, acessa o carrinho de compras, finaliza a compra, altera seus dados e verifica o tempo de espera do pedido. 
+Para o desenvolvimento do projeto, foi utilizada a API: https://documenter.getpostman.com/view/7549981/TzRLkAfr .
+
 
 
 <img src= 'https://vocesa.abril.com.br/wp-content/uploads/2021/03/vcsa274_ti_tt.png' width='55px'/> Integrantes:
@@ -27,11 +32,19 @@
 
 #🎨 🧑 🎨 layout:
 
-• Componentes estilizados 
+• React JS
+
+• React-Dom
+
+• Styled Components 
 
 • MaterialUi 
 
-• React-Dom	
+• Axios
+
+• Context
+
+• API: 
 
 • Trello: https://trello.com/invite/b/VZ2UWjyA/1c5f50f8c23c8f5c25161c11086f3d6a/template-kanban
 </br>
