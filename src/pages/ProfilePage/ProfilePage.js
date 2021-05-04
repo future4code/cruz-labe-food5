@@ -18,7 +18,7 @@ const ProfilePage =()=> {
 const getProfile =()=> {
     axios.get(`${BASE_URL}profile`, {
         headers: {
-            Authorization: window.localStorage.getItem("token")
+            auth: window.localStorage.getItem("token")
         }
     })
     .then((res)=>{
@@ -32,7 +32,7 @@ const getProfile =()=> {
 const getAddress =()=> {
     axios.get(`${BASE_URL}profile/address`, {
         headers: {
-            Authorization: window.localStorage.getItem("token")
+            auth: window.localStorage.getItem("token")
         }
     })
     .then((res)=>{
@@ -46,7 +46,7 @@ const getAddress =()=> {
 const getOrderHistory =()=> {
     axios.get(`${BASE_URL}orders/history`, {
         headers: {
-            Authorization: window.localStorage.getItem("token")
+            auth: window.localStorage.getItem("token")
         }
     })
     .then((res)=>{
@@ -61,24 +61,19 @@ const getOrderHistory =()=> {
             <h1>Meu perfil</h1>
             <ProfileDiv>
                 <div>
-                <p>Joao</p>
-                <p>joao@gmail.com</p>
-                <p>111.111.111-50</p>
-                {/* <p>{profile.name}</p>
+                <p>{profile.name}</p>
                 <p>{profile.email}</p>
-                <p>{profile.cpf}</p> */}
+                <p>{profile.cpf}</p>
                 </div>
                 <Button><EditIcon/></Button>
             </ProfileDiv>
             <AddressDiv>
                 <div>
-                <p>Rua Guaicurus, 89 - Centro</p>
-                {/* <p>{address.street}, {address.number} - {address.neighbourhood}</p> */}
+                <p>{address.street}, {address.number} - {address.neighbourhood}</p>
                 </div>
                 <Button><EditIcon/></Button>
             </AddressDiv>
             <h3>Histórico de pedidos</h3>
-            {/* <p>{orderHistory}</p> */}
         </ContainerProfile>
     )
 }
