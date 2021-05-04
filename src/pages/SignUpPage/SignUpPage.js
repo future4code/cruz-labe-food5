@@ -2,7 +2,7 @@ import React from "react";
 import {BASE_URL} from "../../constants/urls"
 import logo from "../../assets/logo-future-eats-invert.png";
 import { useHistory } from "react-router";
-import {goToEditAdressPage} from "../../routes/coordinator"
+import {goToEditAdressPage, goToLoginPage} from "../../routes/coordinator"
 import {
     DivContainer,
     Header, 
@@ -30,7 +30,7 @@ const SignUpPage = () => {
       ).then((res) => {
           window.localStorage.setItem("token", res.data.token)
           resetForm()
-          goToEditAdressPage()
+          goToEditAdressPage(history)
       }).catch((err) => {
           console.log(err.response.data.message)
           resetForm()
