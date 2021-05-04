@@ -22,8 +22,7 @@ const SignUpPage = () => {
         cpf: "",
         password: ""
     }
-
-    const [form, setForm, handleForm, resetForm] = useForm(InitialState)
+const [form, setForm, handleForm, resetForm] = useForm(InitialState)
 
   const signUp = () => {
       axios.post(`${BASE_URL}signup`, form

@@ -30,6 +30,6 @@ export const goToEditProfilePage = (history) => {
     history.push("/edit-profile")
 }
 
-export const goToEditAdressPage = (history) => {
-    history.push("/edit-adress")
+export const goToEditAddressPage = (history) => {
+    history.push("/edit-address")
 }
