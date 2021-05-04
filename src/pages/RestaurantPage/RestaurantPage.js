@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import GlobalStateContext from '../../global/GlobalStateContext'
 
 const RestaurantPage =()=> {
+    const {cart, setCart} = useContext(GlobalStateContext)
+    
     return (
         <div>
-             <h1>RestaurantPage</h1>
+            <h1>RestaurantPage</h1>
         </div>
     )
 }
