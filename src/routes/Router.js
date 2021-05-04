@@ -7,7 +7,7 @@ import RestaurantPage from '../pages/RestaurantPage/RestaurantPage'
 import CartPage from '../pages/CartPage/CartPage'
 import ProfilePage from '../pages/ProfilePage/ProfilePage'
 import EditProfilePage from '../pages/EditProfilePage/EditProfilePage'
-import EditAdressPage from '../pages/EditAdressPage/EditAdressPage'
+import EditAddressPage from '../pages/EditAddressPage/EditAddressPage'
 import ErrorPage from '../pages/ErrorPage/ErrorPage'
 
 import React from 'react'
@@ -40,8 +40,8 @@ const Router = () => {
                 <Route exact path="/edit-profile">
                     <EditProfilePage/>
                 </Route>
-                <Route exact path="/edit-adress">
-                    <EditAdressPage/>
+                <Route exact path="/edit-address">
+                    <EditAddressPage/>
                 </Route>
                 <Route>
                     <ErrorPage/>

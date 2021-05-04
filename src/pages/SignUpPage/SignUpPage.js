@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {BASE_URL} from "../../constants/urls"
 import logo from "../../assets/logo-future-eats-invert.png";
 import { useHistory } from "react-router";
-import {goToEditAdressPage, goToLoginPage} from "../../routes/coordinator"
+import {goToEditAddressPage, goToLoginPage} from "../../routes/coordinator"
 import {
     DivContainer,
     Header, 
@@ -34,7 +34,7 @@ const SignUpPage = () => {
           if(confirm === form.password){
           window.localStorage.setItem("token", res.data.token)
           resetForm()
-          goToEditAdressPage(history)
+          goToEditAddressPage(history)
         } else {
           alert("A senha precisa ser idêntica!")
           resetForm()

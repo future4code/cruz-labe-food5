@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom'
-import {goToEditAdressPage} from '../routes/coordinator'
+import {goToEditAddressPage} from '../routes/coordinator'
 import {BASE_URL} from '../constants/urls'
 
 export const useNoAddress = () =>{
@@ -20,7 +20,7 @@ export const useNoAddress = () =>{
                 }
             })
             if(!profileInfo.data.user.hasAddress){
-                goToEditAdressPage(history)
+                goToEditAddressPage(history)
             }
         }catch(error){
             console.log(error.response)
