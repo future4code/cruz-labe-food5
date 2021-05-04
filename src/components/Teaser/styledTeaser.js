@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { defaultColor } from "../constants/colors";
+import { defaultColor } from "../../constants/colors";
 
 export const TeaserContainer= styled.div`
   background-color: ${defaultColor};

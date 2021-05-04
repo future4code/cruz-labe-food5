@@ -1,5 +1,5 @@
 import React from "react";
-import Teaser from "../../components/Teaser";
+import Teaser from "../../components/Teaser/Teaser";
 
 const InitialPage = () => {
   return (
