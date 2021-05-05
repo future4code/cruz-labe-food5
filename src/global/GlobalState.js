@@ -3,10 +3,13 @@ import GlobalStateContext from './GlobalStateContext'
 
 const GlobalState = (props) => {
     const [cart, setCart] = useState([])
+    // const [openPopper, setOpenPopper] = useState(false)
     
     const data = {
         cart,
-        setCart
+        setCart,
+        // openPopper, 
+        // setOpenPopper
     }
 
     return(

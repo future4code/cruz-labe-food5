@@ -16,7 +16,6 @@ import { MainContainer, PopperContainer } from './styled'
 const RestaurantPage = () => {
     const { cart, setCart } = useContext(GlobalStateContext)
     const [restaurantInfo, setRestaurantInfo] = useState(false)
-    const [openPopper, setOpenPopper] = useState(false)
     const pathParams = useParams()
     // const token = window.localStorage.getItem('token')
     const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InExU01sNmpzNHlCc2JIVjN1OTU4IiwibmFtZSI6IkNoZXdiYWNjYSIsImVtYWlsIjoiY2hld3lAZ21haWwuY29tIiwiY3BmIjoiODg2Ljk5NS43MTAtMTEiLCJoYXNBZGRyZXNzIjp0cnVlLCJhZGRyZXNzIjoiUi4gQWZvbnNvIEJyYXosIDE3NywgNzEgLSBWaWxhIE4uIENvbmNlacOnw6NvIiwiaWF0IjoxNjIwMjE5NDk5fQ.GiDCLnmWusR-uVTcEHsvzZqJFNMUGw22XkG5uxggN3Q"
@@ -47,6 +46,7 @@ const RestaurantPage = () => {
         let newCart = [...cart]
         newCart.push(product)
         setCart(newCart)
+        // setOpenPopper(false)
     }
     console.log(restaurantInfo.products)
     console.log(cart)
@@ -55,34 +55,18 @@ const RestaurantPage = () => {
             {!restaurantInfo.products ?
                 <Loading /> :
                 <>
-                    <Popover
-                        open={openPopper}
-                        onClose={() => { setOpenPopper(false) }}
-                        anchor='center'
-                        anchorOrigin={{
-                            vertical: 'top',
-                            horizontal: 'center',
-                        }}
-                        transformOrigin={{
-                            vertical: 'center',
-                            horizontal: 'center',
-                        }}
-                    >
-                        <PopperContainer>
-                            <h3>Teste</h3>
-                        </PopperContainer>
-                    </Popover>
                     <h1>{restaurantInfo.name}</h1>
                     {restaurantInfo.products.map((product) => {
-                        return <FoodCard
-                            key={product.id}
-                            name={product.name}
-                            image={product.photoUrl}
-                            description={product.description}
-                            price={product.price}
-                            // addToCart={() => addToCard(product)}
-                            addToCart={() => { setOpenPopper(true) }}
-                        />
+                        return <>
+                            <FoodCard
+                                key={product.id}
+                                name={product.name}
+                                image={product.photoUrl}
+                                description={product.description}
+                                price={product.price}
+                                addToCart={() => addToCard(product)}
+                            />
+                        </>
                     })}
                 </>}
         </MainContainer>
