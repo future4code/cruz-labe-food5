@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { StyledButton } from "../SignupPage/styles";
+import { StyledButton } from "../SignUpPage/styled";
 import { defaultColor, grayScale, darkColor } from "../../constants/colors";
 
 export const PackageContainer = styled.div`
