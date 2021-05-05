@@ -1,38 +1,36 @@
-import React, {useState} from "react";
-import {BASE_URL} from "../../constants/urls"
+import React, { useState } from "react";
+import { BASE_URL } from "../../constants/urls";
 import logo from "../../assets/logo-future-eats-invert.png";
 import { useHistory } from "react-router";
-import {goToEditAddressPage, goToLoginPage} from "../../routes/coordinator"
+import { goToEditAddressPage, goToLoginPage } from "../../routes/coordinator";
 import {
-    DivContainer,
-    Header, 
-    StyledInput,
-    StyledButton,
-    Form
-} from "./styled"
+  DivContainer,
+  Header,
+  StyledInput,
+  StyledButton,
+  Form,
+} from "./styled";
 import axios from "axios";
-import {useForm} from "../../hooks/useForm"
-// eslint-disable-next-line no-unused-vars
-import { spacing } from '@material-ui/system';
+import { useForm } from "../../hooks/useForm";
 
 const SignUpPage = () => {
   const history = useHistory();
-  const [confirm, setConfirm] = useState("")
-    const InitialState = {
-        name: "",
-        email: "",
-        cpf: "",
-        password: ""
-    }
-    // eslint-disable-next-line no-unused-vars
-    const [form, setForm, handleForm, resetForm] = useForm(InitialState)
-    const handleConfirm = (event) => {
-        setConfirm(event.target.value)
-    }
+  const [confirm, setConfirm] = useState("");
+  const InitialState = {
+    name: "",
+    email: "",
+    cpf: "",
+    password: "",
+  };
+  const [form, setForm, handleForm, resetForm] = useForm(InitialState);
+  const handleConfirm = (event) => {
+    setConfirm(event.target.value);
+  };
 
   const signUp = () => {
-      axios.post(`${BASE_URL}signup`, form
-      ).then((res) => {
+    axios
+      .post(`${BASE_URL}signup`, form)
+      .then((res) => {
           if(confirm === form.password){
           window.localStorage.setItem("token", res.data.token)
           resetForm()
@@ -42,15 +40,17 @@ const SignUpPage = () => {
           resetForm()
           setConfirm("")
         }
-      }).catch((err) => {
-          alert(err.response.data.message)
-          resetForm()
-          setConfirm("")
       })
-  }
+      .catch((err) => {
+        alert(err.response.data.message);
+        resetForm();
+        setConfirm("");
+      });
+  };
 
-  const handleClick = () => {
-    signUp()
+  const handleClick = (e) => {
+    e.preventDefault();
+    signUp();
   };
 
   return (
@@ -58,9 +58,9 @@ const SignUpPage = () => {
       <Header>
         <button onClick={() => goToLoginPage(history)}>voltar</button>
       </Header>
-      <img src={logo} alt=""/>
+      <img src={logo} alt="" />
       <p>Cadastrar</p>
-        <Form>
+      <Form onSubmit={handleClick}>
         <StyledInput
           required
           name="name"
@@ -70,7 +70,8 @@ const SignUpPage = () => {
           value={form.name}
           onChange={handleForm}
           type="text"
-        /> 
+          margin={"normal"}
+        />
         <StyledInput
           required
           name="email"
@@ -80,6 +81,8 @@ const SignUpPage = () => {
           value={form.email}
           onChange={handleForm}
           type="text"
+          margin={"normal"}
+          inputProps={{ pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$" }}
         />
         <StyledInput
           required
@@ -90,6 +93,8 @@ const SignUpPage = () => {
           value={form.cpf}
           onChange={handleForm}
           type="text"
+          margin={"normal"}
+          inputProps={{ pattern: "[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" }}
         />
         <StyledInput
           required
@@ -100,7 +105,8 @@ const SignUpPage = () => {
           value={form.password}
           onChange={handleForm}
           type="password"
-        /> 
+          margin={"normal"}
+        />
         <StyledInput
           required
           label="Confirmar senha"
@@ -109,10 +115,12 @@ const SignUpPage = () => {
           type="password"
           value={confirm}
           onChange={handleConfirm}
+          margin={"normal"}
         />
-        <StyledButton onClick={() => handleClick()} variant="contained" color="primary"> Cadastrar </StyledButton>
-        </Form>
-
+        <StyledButton type="submit" variant="contained" color="primary">
+          Cadastrar
+        </StyledButton>
+      </Form>
     </DivContainer>
   );
 };
