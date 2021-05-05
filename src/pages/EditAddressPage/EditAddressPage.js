@@ -28,6 +28,7 @@ const EditAddressPage = () => {
             .then((res) => {
                 resetForm()
                 goToProfilePage(history)
+                console.log(res)
             })
             .catch((err) => {
                 console.log(err)
@@ -35,14 +36,15 @@ const EditAddressPage = () => {
             })
     }
 
-    const handleClick = () => {
+    const handleClick = (event) => {
         editAddress()
+        event.preventDefault()
     };
 
     return (
         <DivContainer>
             <h1>EditAddressPage</h1>
-            <Form>
+            <Form onSubmit={handleClick}>
                 <StyledInput
                     required
                     name="street"
@@ -52,6 +54,8 @@ const EditAddressPage = () => {
                     value={form.street}
                     onChange={handleForm}
                     type="text"
+                    fullWidth
+                    margin={'normal'}
                 />
                 <StyledInput
                     required
@@ -62,6 +66,8 @@ const EditAddressPage = () => {
                     value={form.number}
                     onChange={handleForm}
                     type="text"
+                    fullWidth
+                    margin={'normal'}
                 />
                 <StyledInput
                     name="complement"
@@ -71,6 +77,8 @@ const EditAddressPage = () => {
                     value={form.complement}
                     onChange={handleForm}
                     type="text"
+                    fullWidth
+                    margin={'normal'}
                 />
                 <StyledInput
                     required
@@ -81,6 +89,8 @@ const EditAddressPage = () => {
                     value={form.neighbourhood}
                     onChange={handleForm}
                     type="text"
+                    fullWidth
+                    margin={'normal'}
                 />
                 <StyledInput
                     required
@@ -91,6 +101,8 @@ const EditAddressPage = () => {
                     value={form.city}
                     onChange={handleForm}
                     type="text"
+                    fullWidth
+                    margin={'normal'}
                 />
                 <StyledInput
                     required
@@ -101,9 +113,11 @@ const EditAddressPage = () => {
                     value={form.state}
                     onChange={handleForm}
                     type="text"
+                    fullWidth
+                    margin={'normal'}
                 />
                 
-                <StyledButton onClick={() => handleClick()} variant="contained" color="primary"> Salvar </StyledButton>
+                <StyledButton type="submit" variant="contained" color="primary"> Salvar </StyledButton>
             </Form>
         </DivContainer>
     )
