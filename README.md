@@ -1,4 +1,4 @@
-                                                                    <b>*4FOOD Y♥u*</b>
+                                                                    *4FOOD Y♥u*
 
 
                       ![image](https://user-images.githubusercontent.com/77943169/116927678-5afffc00-ac32-11eb-87d1-aab6e7a5d162.png) 
