@@ -82,7 +82,7 @@ const SignUpPage = () => {
           onChange={handleForm}
           type="text"
           margin={"normal"}
-          inputProps={{ pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$" }}
+          inputProps={{ pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"}}
         />
         <StyledInput
           required
@@ -106,6 +106,7 @@ const SignUpPage = () => {
           onChange={handleForm}
           type="password"
           margin={"normal"}
+          inputProps={{ pattern: "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d^a-zA-Z0-9].{5,50}$"}}
         />
         <StyledInput
           required
