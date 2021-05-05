@@ -43,7 +43,7 @@ const EditAddressPage = () => {
 
     return (
         <DivContainer>
-            <h1>EditAddressPage</h1>
+            <h1>Endereço</h1>
             <Form onSubmit={handleClick}>
                 <StyledInput
                     required

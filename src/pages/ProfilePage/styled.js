@@ -9,18 +9,32 @@ export const ContainerProfile = styled.div`
 
 export const ProfileDiv = styled.div`
     display:flex;
-    align-items: center;
+    align-items: flex-start;
     width: 20.5rem;
     padding: 5px;
+    margin: 1rem 1rem 0.5rem;
+    font-size: 1rem;
+    letter-spacing: -0.39px;
     justify-content: space-between;   
 `
 export const AddressDiv = styled.div`
-    display:flex;
-    align-items: center;
     width: 20.5rem;
-    padding: 5px;
+    height: 1.125rem;
+    margin: 1rem 1rem 0.5rem;
+    font-size: 1rem;
+    letter-spacing: -0.39px;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
 `
-export const Button = styled.button`
-    margin-left: 5px;
+export const Button = styled.div`
+    cursor: pointer;
+`
+export const HistoryContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+`
+export const AddressTitle = styled.p`
+color: #b8b8b8;
 `
