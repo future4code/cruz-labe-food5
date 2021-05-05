@@ -7,6 +7,7 @@ import { AddressDiv, ContainerProfile, ProfileDiv, Button } from './styled';
 const ProfilePage =()=> {
     const [profile, setProfile] = useState({})
     const [address, setAddress] = useState({})
+    // eslint-disable-next-line no-unused-vars
     const [orderHistory, setOrderHistory] = useState({})
 
     useEffect(() => {

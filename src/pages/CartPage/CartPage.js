@@ -11,20 +11,20 @@ import {
   AddressTitle,
   Title,
   Shipping,
-  Wrapper,
+  PackageContainer,
   Total,
   TotalPrice,
   CheckBox,
   PaymentMethod,
   Button,
   ButtonContainer,
-} from "./styles";
-import CartFoodInfoCard from "../../components/CartFoodInfoCard";
+} from "./styled.js";
+import CartFoodInfoCard from "../../components/CartFoodInfoCard/CartFoodInfoCard";
 import { getAddress, placeOrder } from "../../services/users";
 import { useHistory } from "react-router-dom";
 
 export default function CartPage() {
-  window.document.title = "4Food";
+  window.document.title = "4Food5";
 
   const { cart, setCart } = useContext(GlobalStateContext);
   const [payMethod, setPayMethod] = useState("");
@@ -103,16 +103,18 @@ export default function CartPage() {
     return 0;
   };
   return (
-    <Wrapper>
+    <PackageContainer>
       <AddressContainer>
-        <AddressTitle>Endereço de entrega</AddressTitle>
+        <AddressTitle>•Endereço de entrega•</AddressTitle>
         {userAddress ? (
           <p>{`${userAddress.street}, ${userAddress.number} - ${userAddress.neighbourhood}`}</p>
         ) : (
-          <p>Buscando seu endereço..</p>
+          <p>Buscando seu endereço•••</p>
         )}
       </AddressContainer>
+
       {Object.entries(cart.cart).length !== 0 ? (
+        // eslint-disable-next-line array-callback-return
         cart.cart.products.map((product) => {
           if (product.quantity > 0) {
             return (
@@ -129,10 +131,9 @@ export default function CartPage() {
               />
             );
           }
-      }
-      )
+        })
       ) : (
-        <Title>Carrinho vazio</Title>
+        <Title>•Carrinho Vazio•</Title>
       )}
 
       <Shipping>
@@ -175,6 +176,6 @@ export default function CartPage() {
       <ButtonContainer>
         <Button onClick={sendOrder}>Confirmar Compra♥</Button>
       </ButtonContainer>
-    </Wrapper>
+    </PackageContainer>
   );
 }

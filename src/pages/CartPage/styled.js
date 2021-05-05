@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { ButtonStyled } from '../SignupPage/styles';
-export const Wrapper=styled.div`   
+
+
+export const PackageContainer=styled.div`   
   width: 100vw;
   max-width:420px;
   margin-bottom: 70px;
