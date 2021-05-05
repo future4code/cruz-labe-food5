@@ -10,12 +10,16 @@ export const ContainerProfile = styled.div`
 export const ProfileDiv = styled.div`
     display:flex;
     align-items: center;
-    border: 1px, solid, black;
+    width: 20.5rem;
+    padding: 5px;
+    justify-content: space-between;   
 `
 export const AddressDiv = styled.div`
     display:flex;
     align-items: center;
-    border: 1px, solid, black;
+    width: 20.5rem;
+    padding: 5px;
+    justify-content: space-between;
 `
 export const Button = styled.button`
     margin-left: 5px;

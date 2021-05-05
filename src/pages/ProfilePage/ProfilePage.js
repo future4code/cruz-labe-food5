@@ -3,8 +3,11 @@ import { BASE_URL } from '../../constants/urls'
 import axios from 'axios'
 import EditIcon from '@material-ui/icons/Edit';
 import { AddressDiv, ContainerProfile, ProfileDiv, Button } from './styled';
+import { goToEditAddressPage, goToEditProfilePage } from '../../routes/coordinator';
+import { useHistory } from 'react-router';
 
 const ProfilePage =()=> {
+    const history = useHistory()
     const [profile, setProfile] = useState({})
     // const [address, setAddress] = useState({})
     // eslint-disable-next-line no-unused-vars
@@ -67,13 +70,13 @@ const getProfile =()=> {
                 <p>{profile.email}</p>
                 <p>{profile.cpf}</p>
                 </div>
-                <Button><EditIcon/></Button>
+                <Button onClick={() => goToEditProfilePage(history)}><EditIcon/></Button>
             </ProfileDiv>
             <AddressDiv>
                 <div>
                 {profile.address}
                 </div>
-                <Button><EditIcon/></Button>
+                <Button onClick={() => goToEditAddressPage(history)}><EditIcon/></Button>
             </AddressDiv>
             <h3>Histórico de pedidos</h3>
         </ContainerProfile>
