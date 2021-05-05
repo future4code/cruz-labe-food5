@@ -6,3 +6,11 @@ display: flex;
 flex-direction: column;
 align-items: center;
 `
+
+export const PopperContainer = styled.div`
+width: 10em;
+background-color: white;
+display: flex;
+flex-direction: column;
+align-items: center;
+`
