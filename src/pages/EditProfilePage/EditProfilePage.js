@@ -65,8 +65,10 @@ const EditProfilePage =()=> {
                     type="text"
                     fullWidth
                     margin={'normal'}
+                    inputProps={{ pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$" }}
                 />
                 <StyledInput
+                    required
                     name="cpf"
                     label="CPF"
                     placeholder="000.000.000-00"
@@ -76,6 +78,7 @@ const EditProfilePage =()=> {
                     type="text"
                     fullWidth
                     margin={'normal'}
+                    inputProps={{ pattern: "[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" }}
                 />
                 <StyledButton type="submit" variant="contained" color="primary"> Salvar </StyledButton>
             </Form>

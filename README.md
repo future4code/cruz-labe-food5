@@ -16,7 +16,7 @@ Para o desenvolvimento do projeto, foi utilizada a API: https://documenter.getpo
 
 • Dayane Lang
 
-• Guilherme Henrique Motta Alfredo
+• Guilherme Henrique Mota Alfredo
 
 • João Vítor Alves de Mello Costa
 
