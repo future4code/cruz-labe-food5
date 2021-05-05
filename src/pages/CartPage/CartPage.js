@@ -24,7 +24,7 @@ import { getAddress, placeOrder } from "../../services/users";
 import { useHistory } from "react-router-dom";
 
 export default function CartPage() {
-  window.document.title = "4Food5";
+  window.document.title = "4Food Y♥U";
 
   const { cart, setCart } = useContext(GlobalStateContext);
   const [payMethod, setPayMethod] = useState("");
