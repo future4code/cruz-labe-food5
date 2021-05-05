@@ -5,7 +5,7 @@ import { goToHomePage, goBack } from "../routes/coordinator"
 export const login = (body, resetForm, history) => {
 
     axios
-        .post(`${BASE_URL}` / "login", body)
+        .post(`${BASE_URL}login`, body)
         .then((res) => {
             localStorage.setItem("token", res.data.token);
             resetForm();
@@ -17,7 +17,7 @@ export const login = (body, resetForm, history) => {
 };
 export const signUp = (body, resetForm, history) => {
     axios
-        .post(`${BASE_URL}` / "signup", body)
+        .post(`${BASE_URL}signup`, body)
         .then((res) => {
             localStorage.setItem("token", res.data.token);
             resetForm();
