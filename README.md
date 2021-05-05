@@ -6,7 +6,7 @@
 📝️ Sobre
 Projeto final do curso de Frontend da Labenu. 
 A ideia foi desenvolver um aplicativo parecido com o IFood, onde o usuário faz os pedidos, acessa o carrinho de compras, finaliza a compra, altera seus dados e verifica o tempo de espera do pedido. 
-Para o desenvolvimento do projeto, foi utilizada a API: https://documenter.getpostman.com/view/7549981/TzRLkAfr .
+Para o desenvolvimento do projeto, foi utilizada a API: https://documenter.getpostman.com/view/7549981/SWTEdGtT .
 
 
 
@@ -44,7 +44,7 @@ Para o desenvolvimento do projeto, foi utilizada a API: https://documenter.getpo
 
 • Context
 
-• API: 
+• API: https://documenter.getpostman.com/view/7549981/SWTEdGtT
 
 • Trello: https://trello.com/invite/b/VZ2UWjyA/1c5f50f8c23c8f5c25161c11086f3d6a/template-kanban
 </br>
@@ -52,12 +52,13 @@ Para o desenvolvimento do projeto, foi utilizada a API: https://documenter.getpo
 
 😎🌟 O que Funciona:
 
-• Página de Abertura (Teaser)
+• Página de Abertura (Teaser);
 
-•
+• Página de Login;
 
-•
+• Página de Cadastro;
 
+</br>
 ❎ O que não funciona:
 
-• 
+• mistérios
