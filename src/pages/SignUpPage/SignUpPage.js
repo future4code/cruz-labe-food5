@@ -12,6 +12,7 @@ import {
 } from "./styled"
 import axios from "axios";
 import {useForm} from "../../hooks/useForm"
+// eslint-disable-next-line no-unused-vars
 import { spacing } from '@material-ui/system';
 
 const SignUpPage = () => {
@@ -23,6 +24,7 @@ const SignUpPage = () => {
         cpf: "",
         password: ""
     }
+    // eslint-disable-next-line no-unused-vars
     const [form, setForm, handleForm, resetForm] = useForm(InitialState)
     const handleConfirm = (event) => {
         setConfirm(event.target.value)
@@ -56,7 +58,7 @@ const SignUpPage = () => {
       <Header>
         <button onClick={() => goToLoginPage(history)}>voltar</button>
       </Header>
-      <img src={logo}/>
+      <img src={logo} alt=""/>
       <p>Cadastrar</p>
         <Form>
         <StyledInput

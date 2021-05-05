@@ -1,12 +1,12 @@
-*4FOOD5*
+*4FOOD Y♥u*
 
 
 ![image](https://user-images.githubusercontent.com/77943169/116927678-5afffc00-ac32-11eb-87d1-aab6e7a5d162.png)
 
 📝️ Sobre
-Projeto final do curso de Frontend da Labenu. 
-A ideia foi desenvolver um aplicativo parecido com o IFood, onde o usuário faz os pedidos, acessa o carrinho de compras, finaliza a compra, altera seus dados e verifica o tempo de espera do pedido. 
-Para o desenvolvimento do projeto, foi utilizada a API: https://documenter.getpostman.com/view/7549981/TzRLkAfr .
+Projeto Final do módulo de Frontend da Labenu. 
+A ideia foi desenvolver um aplicativo parecido com o IFood, cujo usuário acessa sua conta, altera seus dados (caso já possua cadastrado), se for usuário novo é possível se cadastrar, faz os pedidos, acessa o carrinho de compras, finaliza a compra e verifica o tempo de espera do pedido. 
+Para o desenvolvimento do projeto, foi utilizada a API: https://documenter.getpostman.com/view/7549981/SWTEdGtT .
 
 
 
@@ -44,7 +44,9 @@ Para o desenvolvimento do projeto, foi utilizada a API: https://documenter.getpo
 
 • Context
 
-• API: 
+• DAYJS
+
+• API: https://documenter.getpostman.com/view/7549981/SWTEdGtT
 
 • Trello: https://trello.com/invite/b/VZ2UWjyA/1c5f50f8c23c8f5c25161c11086f3d6a/template-kanban
 </br>
@@ -52,12 +54,13 @@ Para o desenvolvimento do projeto, foi utilizada a API: https://documenter.getpo
 
 😎🌟 O que Funciona:
 
-• Página de Abertura (Teaser)
+• Página de Abertura (Teaser);
 
-•
+• Página de Login;
 
-•
+• Página de Cadastro;
 
+</br>
 ❎ O que não funciona:
 
-• 
+• mistérios
