@@ -17,20 +17,20 @@ const LoginPage =() => {
     }
     return (
         <ScreenContainer>
-            <img src={logo}/>
-             <h1>Entrar</h1>
+            <img src={logo} alt='invert_logo'/>
+                <h1>Entrar</h1>
             <Form>
                 <form onSubmit = {onSubmitForm} >
                     <TextField
-                   name={'email'}
-                   type={'email'}
-                   value={form.email}
-                   onChange={handleForm}
-                   label={'e-mail'}
-                   variant={'outlined'}
-                   required
-                   fullWidth
-                   margin={'normal'}
+                    name={'email'}
+                    type={'email'}
+                    value={form.email}
+                    onChange={handleForm}
+                    label={'e-mail'}
+                    variant={'outlined'}
+                    required
+                    fullWidth
+                    margin={'normal'}
                     />
                     <TextField
                         name={'password'}
