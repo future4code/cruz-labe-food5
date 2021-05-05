@@ -85,9 +85,28 @@ export const FoodCardContainer = styled.div`
 `
 
 export const PopperContainer = styled.div`
-width: 10em;
+width: 18em;
 background-color: white;
 display: flex;
 flex-direction: column;
 align-items: center;
+h4{
+  font-family: 'Roboto';
+  font-size: 1rem;
+  letter-spacing: -0.39px;
+  text-align: center;
+}
+button{
+  margin-top: 1em;
+  background: none;
+  border:none;
+  text-transform: uppercase;
+  font-family: 'Roboto';
+  font-size: 1rem;
+  letter-spacing: -0.39px;
+  color: #4f81a8;
+}
+Select{
+  width: 15em;
+}
 `

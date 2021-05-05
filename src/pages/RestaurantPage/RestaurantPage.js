@@ -8,14 +8,18 @@ import { useParams } from 'react-router-dom'
 import { BASE_URL } from '../../constants/urls'
 import axios from 'axios'
 import { useNoAddress } from '../../hooks/useNoAddress'
+import { useForm } from '../../hooks/useForm'
 import FoodCard from '../../components/FoodCard/FoodCard'
 import Loading from '../../components/Loading/Loading'
 import { goToEditAddressPage } from '../../routes/coordinator'
-import { MainContainer, PopperContainer } from './styled'
+import { MainContainer, PopperContainer, CategoryName } from './styled'
 
 const RestaurantPage = () => {
     const { cart, setCart } = useContext(GlobalStateContext)
     const [restaurantInfo, setRestaurantInfo] = useState(false)
+    const [categories, setCategories] = useState([])
+    const [products, setProducts] = useState([])
+    const [form, setForm, handleForm, resetForm] = useForm({ quantity: 0 })
     const pathParams = useParams()
     // const token = window.localStorage.getItem('token')
     const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InExU01sNmpzNHlCc2JIVjN1OTU4IiwibmFtZSI6IkNoZXdiYWNjYSIsImVtYWlsIjoiY2hld3lAZ21haWwuY29tIiwiY3BmIjoiODg2Ljk5NS43MTAtMTEiLCJoYXNBZGRyZXNzIjp0cnVlLCJhZGRyZXNzIjoiUi4gQWZvbnNvIEJyYXosIDE3NywgNzEgLSBWaWxhIE4uIENvbmNlacOnw6NvIiwiaWF0IjoxNjIwMjE5NDk5fQ.GiDCLnmWusR-uVTcEHsvzZqJFNMUGw22XkG5uxggN3Q"
@@ -34,6 +38,21 @@ const RestaurantPage = () => {
                     auth: token,
                 }
             })
+            const categoriesOnly = restaurantDetails.data.restaurant.products.map((product) => {
+                return product.category
+            })
+            const filteredCategoriesOnly = categoriesOnly.filter((category, index) => {
+                return categoriesOnly.indexOf(category) === index
+            })
+            const restaurantCategories = filteredCategoriesOnly.map((category) => {
+                return {
+                    category: category,
+                    products: restaurantDetails.data.restaurant.products.filter((product) => {
+                        return category === product.category
+                    })
+                }
+            })
+            setCategories(restaurantCategories)
             setRestaurantInfo(restaurantDetails.data.restaurant)
         } catch (error) {
             console.log(error.response)
@@ -41,31 +60,42 @@ const RestaurantPage = () => {
         }
     }
 
-    const addToCard = (product) => {
-        console.log(cart)
-        let newCart = [...cart]
-        newCart.push(product)
-        setCart(newCart)
-        // setOpenPopper(false)
+    const setQuantityToZero = () => {
+        setForm({ ...form, quantity: 0 })
     }
-    console.log(restaurantInfo.products)
-    console.log(cart)
+
+    const addToCart = (product) => {
+        let productWithQuantity = { ...product, quantity: form.quantity }
+        let newCart = [...cart]
+        newCart.push(productWithQuantity)
+        setCart(newCart)
+        setForm({ ...form, quantity: 0 })
+    }
+    console.log(categories)
     return (
         <MainContainer>
             {!restaurantInfo.products ?
                 <Loading /> :
                 <>
                     <h1>{restaurantInfo.name}</h1>
-                    {restaurantInfo.products.map((product) => {
+                    {categories.map((category) => {
                         return <>
-                            <FoodCard
-                                key={product.id}
-                                name={product.name}
-                                image={product.photoUrl}
-                                description={product.description}
-                                price={product.price}
-                                addToCart={() => addToCard(product)}
-                            />
+                            <CategoryName>{category.category}</CategoryName>
+                            {category.products.map((product) => {
+                                return <>
+                                    <FoodCard
+                                        key={product.id}
+                                        name={product.name}
+                                        image={product.photoUrl}
+                                        description={product.description}
+                                        price={product.price}
+                                        addToCart={() => addToCart(product)}
+                                        inputName={'quantity'}
+                                        handleChange={handleForm}
+                                        quantity={form.quantity}
+                                    />
+                                </>
+                            })}
                         </>
                     })}
                 </>}
