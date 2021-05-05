@@ -10,7 +10,7 @@ export default function FoodCard(props) {
                 <p>{props.description}</p>
                 <div>
                     <b>R${props.price}</b>
-                    <button onClick={props.addToCard}>adicionar</button>
+                    <button onClick={props.addToCart}>adicionar</button>
                 </div>
             </section>
         </FoodCardContainer>
