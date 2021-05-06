@@ -14,3 +14,10 @@ display: flex;
 flex-direction: column;
 align-items: center;
 `
+
+export const CategoryName = styled.h3`
+width: 90%;
+font-family: 'Roboto';
+letter-spacing: -0.39px;
+border-bottom:1px solid black;
+`
