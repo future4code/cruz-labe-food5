@@ -128,7 +128,7 @@ const SignUpPage = () => {
             value={form.password}
             type={visiblePassword ? "text" : "password"}
             name="password"
-            placeholder="Mímino 6 caracteres"
+            placeholder="Mímino 6 caracteres, com letras e números"
             onChange={handleForm}
             inputProps={{
               pattern: "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d^a-zA-Z0-9].{5,50}$",

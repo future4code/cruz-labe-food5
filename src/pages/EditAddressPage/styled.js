@@ -9,6 +9,17 @@ export const DivContainer = styled.div`
   align-items: center;
 `;
 
+export const Header = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+height: 4rem;
+margin: 0 0 1.5rem;
+-webkit-backdrop-filter: blur(10px);
+backdrop-filter: blur(10px);
+box-shadow: 0 0.5px 0 0 rgba(0, 0, 0, 0.25);  
+`;
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;

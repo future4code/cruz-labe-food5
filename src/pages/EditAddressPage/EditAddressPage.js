@@ -4,7 +4,9 @@ import { useHistory } from 'react-router'
 import { BASE_URL } from '../../constants/urls'
 import { useForm } from '../../hooks/useForm'
 import { goToProfilePage } from '../../routes/coordinator'
-import { DivContainer, Form, StyledButton, StyledInput } from './styled'
+import { DivContainer, Form, Header, StyledButton, StyledInput } from './styled'
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import {IconButton} from "@material-ui/core";
 
 const InitialState = {
     street: "",
@@ -29,7 +31,6 @@ const EditAddressPage = () => {
                 window.localStorage.setItem("token", res.data.token)
                 resetForm()
                 goToProfilePage(history)
-                console.log(res)
             })
             .catch((err) => {
                 console.log(err)
@@ -44,7 +45,10 @@ const EditAddressPage = () => {
 
     return (
         <DivContainer>
-            <h1>Endereço</h1>
+            <Header>
+                <IconButton onClick={() => goToProfilePage(history)}><ArrowBackIosIcon/></IconButton>
+                <p>Endereço</p>
+            </Header>
             <Form onSubmit={handleClick}>
                 <StyledInput
                     required

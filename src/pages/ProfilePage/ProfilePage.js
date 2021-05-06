@@ -2,20 +2,19 @@ import React, { useState, useEffect } from 'react'
 import { BASE_URL } from '../../constants/urls'
 import axios from 'axios'
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
-import { AddressDiv, ContainerProfile, ProfileDiv, Button, HistoryContainer, AddressTitle } from './styled';
+import { AddressDiv, ContainerProfile, ProfileDiv, Button, HistoryContainer, AddressTitle, Header, DivTitle, DivInfoAddress, DivButton } from './styled';
 import { goToEditAddressPage, goToEditProfilePage } from '../../routes/coordinator';
 import { useHistory } from 'react-router';
+
 
 const ProfilePage = () => {
     const history = useHistory()
     const [profile, setProfile] = useState({})
-    // const [address, setAddress] = useState({})
-    // const [orderHistory, setOrderHistory] = useState({})
+    const [orderHistory, setOrderHistory] = useState({})
 
     useEffect(() => {
         getProfile()
-        // getFullAddress()
-        // getOrderHistory()
+        getOrderHistory()
     }, [])
 
     const getProfile = () => {
@@ -32,37 +31,25 @@ const ProfilePage = () => {
             })
     }
 
-    // const getFullAddress =()=> {
-    //     axios.get(`${BASE_URL}profile/address`, {
-    //         headers: {
-    //             auth: window.localStorage.getItem("token")
-    //         }
-    //     })
-    //     .then((res)=>{
-    //         // setAddress(res.data.user.adress)
-    //         console.log(res)
-    //     })
-    //     .catch((err)=>{
-    //         console.log(err.response.data.message)
-    //     })
-    // }
-
-    // const getOrderHistory =()=> {
-    //     axios.get(`${BASE_URL}orders/history`, {
-    //         headers: {
-    //             auth: window.localStorage.getItem("token")
-    //         }
-    //     })
-    //     .then((res)=>{
-    //         setOrderHistory(res.data.order)
-    //     })
-    //     .catch((err)=>{
-    //         console.log(err)
-    //     })
-    // }
+    const getOrderHistory = () => {
+        axios.get(`${BASE_URL}orders/history`, {
+            headers: {
+                auth: window.localStorage.getItem("token")
+            }
+        })
+            .then((res) => {
+                setOrderHistory(res.data.order)
+                console.log(res.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
     return (
         <ContainerProfile>
-            <h1>Meu perfil</h1>
+            <Header>
+                <p>Meu perfil</p>
+            </Header>
             <ProfileDiv>
                 <div>
                     <p>{profile.name}</p>
@@ -71,15 +58,22 @@ const ProfilePage = () => {
                 </div>
                 <Button onClick={() => goToEditProfilePage(history)}><EditOutlinedIcon /></Button>
             </ProfileDiv>
-            <AddressDiv>
-                <div>
-                    <AddressTitle>Endereço cadastrado</AddressTitle>
-                    {profile.address}
-                </div>
-                <Button onClick={() => goToEditAddressPage(history)}><EditOutlinedIcon /></Button>
-            </AddressDiv>
+
+         <AddressDiv>
+                <DivButton>
+                    <div>
+                        <AddressTitle>Endereço cadastrado</AddressTitle>
+                        {profile.address}
+                    </div>  
+                    <Button onClick={() => goToEditAddressPage(history)}><EditOutlinedIcon /></Button>
+                </DivButton>
+        </AddressDiv> 
+
             <HistoryContainer>
-                <h3>Histórico de pedidos</h3>
+                <DivTitle>
+                    <p>Histórico de pedidos</p>
+                </DivTitle>
+               {profile.orderHistory ? profile.orderHistory : <p>Você não realizou nenhum pedido</p>}
             </HistoryContainer>
         </ContainerProfile>
     )
