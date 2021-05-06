@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useContext } from 'react'
 import { FoodCardContainer, PopperContainer } from './style'
 import Popover from '@material-ui/core/Popover'
