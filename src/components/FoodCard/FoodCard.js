@@ -56,7 +56,7 @@ export default function FoodCard(props) {
                     onChange={props.handleChange}
                     value={props.quantity}
                     /> */}
-                    <button onClick={props.addToCart}>Adicionar</button>
+                    <button onClick={props.buttonFunction}>Adicionar</button>
                 </PopperContainer>
             </Popover>
         </FoodCardContainer>

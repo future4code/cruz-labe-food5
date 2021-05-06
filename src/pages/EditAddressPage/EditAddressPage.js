@@ -26,6 +26,7 @@ const EditAddressPage = () => {
             }
         })
             .then((res) => {
+                window.localStorage.setItem("token", res.data.token)
                 resetForm()
                 goToProfilePage(history)
                 console.log(res)
