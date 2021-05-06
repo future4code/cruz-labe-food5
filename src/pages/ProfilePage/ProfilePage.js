@@ -58,15 +58,17 @@ const ProfilePage = () => {
                 </div>
                 <Button onClick={() => goToEditProfilePage(history)}><EditOutlinedIcon /></Button>
             </ProfileDiv>
-            <AddressDiv>
-                <DivInfoAddress>
-                    <DivButton>
+
+         <AddressDiv>
+                    <div>
                         <AddressTitle>Endereço cadastrado</AddressTitle>
-                        <Button onClick={() => goToEditAddressPage(history)}><EditOutlinedIcon /></Button>
-                    </DivButton>
-                    {profile.address}
-                </DivInfoAddress>
-            </AddressDiv>
+                        {profile.address}
+                    </div>  
+                    <Button onClick={() => goToEditAddressPage(history)}><EditOutlinedIcon /></Button>
+        </AddressDiv> 
+
+
+
             <HistoryContainer>
                 <DivTitle>
                     <p>Histórico de pedidos</p>
