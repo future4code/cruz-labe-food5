@@ -3,8 +3,10 @@ import { useHistory } from 'react-router';
 import axios from 'axios'
 import { BASE_URL } from '../../constants/urls'
 import { goToProfilePage } from '../../routes/coordinator'
-import { DivContainer, Form, StyledButton, StyledInput } from './styled';
+import { DivContainer, Form, Header, StyledButton, StyledInput } from './styled';
 import { useForm } from '../../hooks/useForm'
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import {IconButton} from "@material-ui/core";
 
 const InitialState = {
     name: "",
@@ -25,7 +27,6 @@ const EditProfilePage =()=> {
             .then((res) => {
                 resetForm()
                 goToProfilePage(history)
-                console.log(res)
             })
             .catch((err) => {
                 console.log(err.response.data.message)
@@ -40,7 +41,10 @@ const EditProfilePage =()=> {
 
     return (
         <DivContainer>
-            <h1>EditProfilePage</h1>
+            <Header>
+                <IconButton onClick={() => goToProfilePage(history)}><ArrowBackIosIcon/></IconButton>
+                <p>Editar</p>
+            </Header>
             <Form onSubmit={handleClick}>
                 <StyledInput
                     required
