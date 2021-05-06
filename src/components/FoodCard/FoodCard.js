@@ -27,6 +27,7 @@ export default function FoodCard(props) {
         let newCart = cart.filter((item)=>{
             return item.id !== product.id
         })
+        alert(`${product.name} removido do carrinho.`)
         setCart(newCart)
     }
 
