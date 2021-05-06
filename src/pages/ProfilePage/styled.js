@@ -29,7 +29,7 @@ export const ProfileDiv = styled.div`
     justify-content: space-between;   
 `
 export const AddressDiv = styled.div`
-    width: 22.5rem;
+    width: 100%;
     height: 100%;
     margin: 1rem 1rem 0.5rem;
     font-size: 1rem;
@@ -40,13 +40,17 @@ export const AddressDiv = styled.div`
     background-color: #eeeeee;
 `
 export const DivInfoAddress = styled.div`
-    margin: 0 1rem;
     display: flex;
     flex-direction: column;
+    width: 21.5rem;
 `
 export const DivButton = styled.div`
+width: 100%;
 display: flex; 
+align-items: center;
 justify-content: space-between;
+margin-left: 1rem;
+flex-wrap: wrap;
 `
 export const Button = styled.div`
     cursor: pointer;
