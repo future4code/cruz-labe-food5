@@ -60,20 +60,20 @@ const ProfilePage = () => {
             </ProfileDiv>
 
          <AddressDiv>
+                <DivButton>
                     <div>
                         <AddressTitle>Endereço cadastrado</AddressTitle>
                         {profile.address}
                     </div>  
                     <Button onClick={() => goToEditAddressPage(history)}><EditOutlinedIcon /></Button>
+                </DivButton>
         </AddressDiv> 
-
-
 
             <HistoryContainer>
                 <DivTitle>
                     <p>Histórico de pedidos</p>
                 </DivTitle>
-                {profile.orderHistory}
+               {profile.orderHistory ? profile.orderHistory : <p>Você não realizou nenhum pedido</p>}
             </HistoryContainer>
         </ContainerProfile>
     )

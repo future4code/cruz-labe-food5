@@ -22,21 +22,12 @@ export const ProfileDiv = styled.div`
     display:flex;
     align-items: flex-start;
     width: 20.5rem;
-    padding: 5px;
     margin: 1rem 1rem 0.5rem;
     font-size: 1rem;
     letter-spacing: -0.39px;
     justify-content: space-between;   
 `
 export const AddressDiv = styled.div`
-    width: 100%;
-    height: 100%;
-    margin: 1rem 1rem 0.5rem;
-    font-size: 1rem;
-    letter-spacing: -0.39px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     background-color: #eeeeee;
 `
 export const DivInfoAddress = styled.div`
@@ -45,12 +36,13 @@ export const DivInfoAddress = styled.div`
     width: 21.5rem;
 `
 export const DivButton = styled.div`
-width: 100%;
-display: flex; 
-align-items: center;
-justify-content: space-between;
-margin-left: 1rem;
-flex-wrap: wrap;
+    width: 20.5rem; 
+    display:flex;
+    align-items: flex-start;
+    margin: 1rem 1rem 0.5rem;
+    font-size: 1rem;
+    letter-spacing: -0.39px;
+    justify-content: space-between;   
 `
 export const Button = styled.div`
     cursor: pointer;
