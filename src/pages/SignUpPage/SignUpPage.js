@@ -20,6 +20,7 @@ import {
   FormControl,
 } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 const SignUpPage = () => {
   const history = useHistory();
@@ -72,7 +73,9 @@ const SignUpPage = () => {
   return (
     <DivContainer>
       <Header>
-        <button onClick={() => goToLoginPage(history)}>voltar</button>
+        <IconButton>
+        <ArrowBackIosIcon onClick={() => goToLoginPage(history)}>voltar</ArrowBackIosIcon>
+        </IconButton>
       </Header>
       <img src={logo} alt="" />
       <p>Cadastrar</p>
