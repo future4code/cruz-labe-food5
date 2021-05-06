@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import OutlinedInput from'@material-ui/core/OutlinedInput'
 
 export const DivContainer = styled.div`
   display: flex;
@@ -36,3 +37,8 @@ export const StyledButton = styled(Button)`
 width: 20.5rem;
 height: 3.5rem;
 `;
+
+export const StyledPassword = styled(OutlinedInput)`
+  width: 20.5rem;
+  height: 3.5rem;
+`
