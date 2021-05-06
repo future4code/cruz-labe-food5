@@ -31,6 +31,10 @@ const RestaurantPage = () => {
         getRestaurantDetails()
     }, [])
 
+    useEffect(()=>{
+        console.log(cart)
+    }, [cart])
+
     const getRestaurantDetails = async () => {
         try {
             let restaurantDetails = await axios.get(`${BASE_URL}restaurants/${pathParams.id}`, {
@@ -76,26 +80,26 @@ const RestaurantPage = () => {
         setForm({ ...form, quantity: 0 })
     }
 
-    const removeFromCart = (product) =>{
-        let newCart = cart.filter((item)=>{
-            return item.id !== product.id
-        })
-        setCart(newCart)
-    }
+    // const removeFromCart = (product) =>{
+    //     let newCart = cart.filter((item)=>{
+    //         return item.id !== product.id
+    //     })
+    //     setCart(newCart)
+    // }
 
-    const addOrRemove = (product) =>{
-        let i = 0
-        cart.forEach((item)=>{
-            if(item.id===product.id){
-                i+=1
-            }
-        })
-        if(i===0){
-            addToCart(product)
-        } else{
-            removeFromCart(product)
-        }
-    }
+    // const addOrRemove = (product) =>{
+    //     let i = 0
+    //     cart.forEach((item)=>{
+    //         if(item.id===product.id){
+    //             i+=1
+    //         }
+    //     })
+    //     if(i===0){
+    //         addToCart(product)
+    //     } else{
+    //         removeFromCart(product)
+    //     }
+    // }
 
     return (
         <MainContainer>
@@ -109,15 +113,16 @@ const RestaurantPage = () => {
                             {category.products.map((product) => {
                                 return <>
                                     <FoodCard
+                                        product={product}
                                         key={product.id}
                                         name={product.name}
                                         image={product.photoUrl}
                                         description={product.description}
                                         price={product.price}
-                                        buttonFunction={() => addOrRemove(product)}
-                                        inputName={'quantity'}
-                                        handleChange={handleForm}
-                                        quantity={form.quantity}
+                                        // addToCart={() => addToCart(product)}
+                                        // inputName={'quantity'}
+                                        // handleChange={handleForm}
+                                        // quantity={form.quantity}
                                     />
                                 </>
                             })}

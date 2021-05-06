@@ -31,15 +31,19 @@ export const FoodCardContainer = styled.div`
         /* margin: 0.438rem 0 0; */
         margin-left: 0;
         border-radius: 8px 0;
-        color: #e02020;
+        color: ${props=>props.color};
+        /* color: #e02020; */
         border-top: solid 1px #b8b8b8;
         border-left: solid 1px #b8b8b8;
         border-bottom: none;
         border-right: none;
-        background: none;
-        :active{
-            color: white;
-            background-color: #e8222e;
+        background:${props=>props.background};
+        /* background: none; */
+        :active, :hover{
+          color: ${props=>props.activeColor};
+          background: ${props=>props.activeBackground}
+            /* color: white;
+            background: #e8222e; */
         }
       }
   }
@@ -83,6 +87,25 @@ export const FoodCardContainer = styled.div`
     color: var(--black);
   }
 `
+
+// export const addOrRemoveButton = styled.button`
+// width: 5rem;
+// height: 2rem;
+// position: absolute;
+// right: 0;
+// margin-left: 0;
+// border-radius: 8px 0;
+// color: #e02020;
+// border-top: solid 1px #b8b8b8;
+// border-left: solid 1px #b8b8b8;
+// border-bottom: none;
+// border-right: none;
+// background: none;
+// :active, :hover{
+//     color: white;
+//     background: #e8222e;
+// }
+// `
 
 export const PopperContainer = styled.div`
 width: 18em;
