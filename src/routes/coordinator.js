@@ -35,5 +35,5 @@ export const goToEditAddressPage = (history) => {
 }
 
 export const goBack = (history) =>{
-    history.push('/')
+    history.goBack()
 }

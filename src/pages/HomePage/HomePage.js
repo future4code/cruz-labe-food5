@@ -15,6 +15,7 @@ const HomePage =()=> {
     useProtectedPage()
     const history = useHistory()
     const restaurants = useRequestData([], `${BASE_URL}restaurants`)
+    console.log (restaurants)
 
 
     const handleClick = (event) => {
