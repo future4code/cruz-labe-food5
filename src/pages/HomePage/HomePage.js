@@ -1,22 +1,46 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import BottomNavigation from '../../components/NavigationBar/BottomNavigation'
-import Typography from '@material-ui/core/Typography';
-import Breadcrumbs from '@material-ui/core/Breadcrumbs';
-// import SearchIcon from '@material-ui/icons/Search';
-import Link from '@material-ui/core/Link';
-import { ContainerHome } from './styled';
-import TextField from '@material-ui/core/TextField';
+import Breadcrumbs from '@material-ui/core/Breadcrumbs'
+import Link from '@material-ui/core/Link'
+import { CardContainer, ContainerHome, FoodImg, SearchForm } from './styled'
+import TextField from '@material-ui/core/TextField'
 import { useProtectedPage } from '../../hooks/useProtectedPage'
 import { useHistory } from 'react-router'
 import useRequestData from '../../hooks/useRequestData'
 import {BASE_URL} from '../../constants/urls'
+import { CardContent } from '@material-ui/core'
+import { useForm } from '../../hooks/useForm'
+
 
 const HomePage =()=> {
     useProtectedPage()
     const history = useHistory()
-    const restaurants = useRequestData([], `${BASE_URL}restaurants`)
-    console.log (restaurants)
+    const restaurants = useRequestData([], `${BASE_URL}restaurants`).restaurants
+    const [form, setForm, handleForm, resetForm] = useForm({search:''})
+    const [renderedRestaurants, setRenderedRestaurants] = useState([])
+    
+    useEffect(() => {
+        setRenderedRestaurants(restaurants)
+    },[restaurants]) 
+    
+    useEffect(() => {
+        searchRestaurants()
+        console.log(form.search)
+    }, [form.search])
 
+
+    const searchRestaurants= (event) => {
+        event.preventDefault()
+        if (form.search) {
+            let newRestaurants = restaurants.filter((restaurants) => {
+                return (restaurants.name.toLowerCase().includes(form.search.toLowerCase()) || restaurants.category.toLowerCase().includes(form.search.toLowerCase()))
+            })
+            setRenderedRestaurants(newRestaurants)
+        } else {
+            setRenderedRestaurants(restaurants)
+        }
+    }
+    
 
     const handleClick = (event) => {
         event.preventDefault();
@@ -24,14 +48,17 @@ const HomePage =()=> {
       }
     return (
         <ContainerHome>
-            {/* <SearchIcon /> */}
+            <SearchForm>
             <TextField
-            // {...params}
-            label="Search "
-            margin="normal"
-            variant="outlined"
-        //     InputProps={{ ...params.InputProps, type: 'search' }}
-            />
+                label='search'
+                value={form.search}
+                name="search"
+                onChange={handleForm}
+                type="text"
+                variant="outlined"
+                />
+            </SearchForm>
+        
             <Breadcrumbs aria-label="breadcrumb">
                 <Link color="inherit" href="/" onClick={handleClick}>
                 Material-UI
@@ -43,7 +70,19 @@ const HomePage =()=> {
                 Core
                 </Link>
             </Breadcrumbs>
-            <h1>HomePage</h1>
+            {restaurants && restaurants.map((restaurants) => {
+            return (
+             <CardContainer>
+            <FoodImg src={restaurants.logoUrl} alt="logo_restaurante"/>
+            <CardContent>
+             <p>{restaurants.name}</p>
+             <p>{restaurants.deliveryTime}</p>
+             <p>{restaurants.shipping}</p>
+            </CardContent>
+                   
+            </CardContainer>
+         )
+            })}
             <BottomNavigation/>
         </ContainerHome>
     )
