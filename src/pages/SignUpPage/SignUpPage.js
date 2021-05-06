@@ -9,9 +9,17 @@ import {
   StyledInput,
   StyledButton,
   Form,
+  StyledPassword,
 } from "./styled";
 import axios from "axios";
 import { useForm } from "../../hooks/useForm";
+import {
+  InputLabel,
+  IconButton,
+  InputAdornment,
+  FormControl,
+} from "@material-ui/core";
+import { Visibility, VisibilityOff } from "@material-ui/icons";
 
 const SignUpPage = () => {
   const history = useHistory();
@@ -27,18 +35,26 @@ const SignUpPage = () => {
     setConfirm(event.target.value);
   };
 
+  const [visiblePassword, setVisiblePassword] = useState(false);
+  const handleClickVisiblePassword = () => {
+    setVisiblePassword(!visiblePassword);
+  };
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
   const signUp = () => {
     axios
       .post(`${BASE_URL}signup`, form)
       .then((res) => {
-          if(confirm === form.password){
-          window.localStorage.setItem("token", res.data.token)
-          resetForm()
-          goToEditAddressPage(history)
+        if (confirm === form.password) {
+          window.localStorage.setItem("token", res.data.token);
+          resetForm();
+          goToEditAddressPage(history);
         } else {
-          alert("A senha precisa ser idêntica!")
-          resetForm()
-          setConfirm("")
+          alert("A senha precisa ser idêntica!");
+          resetForm();
+          setConfirm("");
         }
       })
       .catch((err) => {
@@ -82,7 +98,7 @@ const SignUpPage = () => {
           onChange={handleForm}
           type="text"
           margin={"normal"}
-          inputProps={{ pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"}}
+          inputProps={{ pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" }}
         />
         <StyledInput
           required
@@ -96,28 +112,66 @@ const SignUpPage = () => {
           margin={"normal"}
           inputProps={{ pattern: "[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" }}
         />
-        <StyledInput
-          required
-          name="password"
-          label="Senha"
-          placeholder="Mínimo 6 caracteres"
+
+        <FormControl
           variant="outlined"
-          value={form.password}
-          onChange={handleForm}
-          type="password"
-          margin={"normal"}
-          inputProps={{ pattern: "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d^a-zA-Z0-9].{5,50}$"}}
-        />
-        <StyledInput
-          required
-          label="Confirmar senha"
-          placeholder="Confirme a senha anterior"
+          required="true"
+          style={{ margin: "8px 0" }}
+        >
+          <InputLabel htmlFor="outlined-adornment-password">Senha</InputLabel>
+          <StyledPassword
+            required
+            label="Senha"
+            value={form.password}
+            type={visiblePassword ? "text" : "password"}
+            name="password"
+            placeholder="Mímino 6 caracteres"
+            onChange={handleForm}
+            inputProps={{
+              pattern: "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d^a-zA-Z0-9].{5,50}$",
+            }}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  onClick={handleClickVisiblePassword}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  {visiblePassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            }
+          />
+        </FormControl>
+
+        <FormControl
           variant="outlined"
-          type="password"
-          value={confirm}
-          onChange={handleConfirm}
-          margin={"normal"}
-        />
+          required="true"
+          style={{ margin: "8px 0" }}
+        >
+          <InputLabel htmlFor="outlined-adornment-password">
+            Confirmar Senha
+          </InputLabel>
+          <StyledPassword
+            label="Confirmar Senha"
+            value={confirm}
+            type={visiblePassword ? "text" : "password"}
+            name="password"
+            placeholder="Confirme a senha anterior"
+            onChange={handleConfirm}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  onClick={handleClickVisiblePassword}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  {visiblePassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            }
+          />
+        </FormControl>
         <StyledButton type="submit" variant="contained" color="primary">
           Cadastrar
         </StyledButton>
