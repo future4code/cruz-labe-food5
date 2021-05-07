@@ -4,7 +4,7 @@ import GlobalState from "./global/GlobalState";
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./constants/theme";
 import Header from "./components/Header/Header";
-import FooterNaveg from "./components/NavigationBar/BottomNavigation";
+import FooterNav from "./components/NavigationBar/FooterNav";
 import { BrowserRouter, Route } from "react-router-dom";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
             <Header />
           </Route>
           <Router />
-          <FooterNaveg />
+          <FooterNav />
         </BrowserRouter>
       </GlobalState>
     </ThemeProvider>
