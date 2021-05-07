@@ -9,11 +9,11 @@ import {quantityArray}from '../../constants/quantityArray'
 import GlobalStateContext from '../../global/GlobalStateContext'
 
 export default function FoodCard(props) {
-    const {cart, setCart} = useContext(GlobalStateContext)
+    const {cart, setCart, restaurantIdForCart, setRestaurantIdForCart, restaurantShipping, setRestaurantShipping} = useContext(GlobalStateContext)
     const [form, setForm, handleForm, resetForm] = useForm({ quantity: 1 })
     const [openPopper, setOpenPopper] = useState(false)
 
-    const addToCart = (product) => {
+    const addToCart = (product, restaurantId, shipping) => {
         let productWithQuantity = { ...product, quantity: form.quantity }
         let newCart = [...cart]
         newCart.push(productWithQuantity)
@@ -21,6 +21,8 @@ export default function FoodCard(props) {
         setCart(newCart)
         setForm({ ...form, quantity: 0 })
         setOpenPopper(false)
+        setRestaurantIdForCart(restaurantId)
+        setRestaurantShipping(shipping)
     }
 
     const removeFromCart = (product) =>{
@@ -100,7 +102,7 @@ export default function FoodCard(props) {
                             return <MenuItem value={number}>{number}</MenuItem>
                         })}
                     </Select>
-                    <button onClick={()=>addToCart(props.product)}>Adicionar</button>
+                    <button onClick={()=>addToCart(props.product, props.restaurantId, props.restaurantShipping)}>Adicionar</button>
                 </PopperContainer>
             </Popover>
         </FoodCardContainer>

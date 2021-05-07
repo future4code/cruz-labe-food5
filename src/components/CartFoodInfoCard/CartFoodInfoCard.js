@@ -38,10 +38,10 @@ export default function CartFoodInfoCard(props) {
           </FoodPrice>
 
           <ButtonsContainer>
-            <Button onClick={() => props.subtractItem(props.id)} adding={false}>
+            <Button onClick={props.subtractItem} adding={false}>
               -1
             </Button>
-            <Button onClick={() => props.addItem(props.id)} adding={true}>
+            <Button onClick={props.addItem} adding={true}>
               +1
             </Button>
           </ButtonsContainer>

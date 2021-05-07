@@ -5,6 +5,7 @@ width: 100%;
 display: flex;
 flex-direction: column;
 align-items: center;
+margin-bottom: 5em;
 `
 
 export const RestaurantInfoContainer = styled.section`

@@ -72,7 +72,6 @@ const RestaurantPage = () => {
 
   return (
     <MainContainer>
-      {console.log(restaurantInfo)}
       {!restaurantInfo.products ?
         <Loading /> :
         <>
@@ -90,6 +89,8 @@ const RestaurantPage = () => {
               {category.products.map((product) => {
                 return <>
                   <FoodCard
+                    restaurantId={restaurantInfo.id}
+                    restaurantShipping={restaurantInfo.shipping}
                     product={product}
                     key={product.id}
                     name={product.name}
