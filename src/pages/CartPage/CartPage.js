@@ -59,36 +59,22 @@ export const CartPage = () => {
   };
 
   const addItem = (id) => {
-    const newProducts = cart.map((product) => {
+    const newCart = [...cart]
+    newCart.forEach((product)=>{
       if (product.id === id) {
-        const newQuantity = product.quantity + 1;
-        const completeProduct = {
-          ...product,
-          quantity: newQuantity,
-        };
-        return completeProduct;
-      } else {
-        return product;
+        product.quantity+=1
       }
-    });
-    const newCart = { ...newProducts };
-    setCart.setCart(newCart);
+    })
+    setCart(newCart);
   };
   const subtractItem = (id) => {
-    const newProducts = cart.map((product) => {
+    const newCart = [...cart]
+    newCart.forEach((product)=>{
       if (product.id === id) {
-        const newQuantity = product.quantity - 1;
-        const completeProduct = {
-          ...product,
-          quantity: newQuantity,
-        };
-        return completeProduct;
-      } else {
-        return product;
+        product.quantity-=1
       }
-    });
-    const newCart = { ...newProducts };
-    setCart.setCart(newCart);
+    })
+    setCart(newCart);
   };
 
   const placeOrder = (body) => {
