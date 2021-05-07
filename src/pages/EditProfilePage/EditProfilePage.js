@@ -44,7 +44,7 @@ const EditProfilePage =()=> {
         <DivContainer>
             <Header>
                 <IconButton onClick={() => goToProfilePage(history)}><ArrowBackIosIcon/></IconButton>
-                <p>Editar</p>
+                <p>Editar Perfil</p>
             </Header>
             <Form onSubmit={handleClick}>
                 <StyledInput
