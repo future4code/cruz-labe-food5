@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import { ScreenContainer, Form, SignUpContainer } from './styled'
 import logo from "../../assets/logo-future-eats-invert.png"
