@@ -36,6 +36,10 @@ const RestaurantPage = () => {
         console.log(cart)
     }, [cart])
 
+    useEffect(()=>{
+        console.log(cart)
+    }, [cart])
+
     const getRestaurantDetails = async () => {
         try {
             let restaurantDetails = await axios.get(`${BASE_URL}restaurants/${pathParams.id}`, {
