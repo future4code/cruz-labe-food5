@@ -90,7 +90,7 @@ const ProfilePage = () => {
                 <DivTitle>
                     <p>Histórico de pedidos</p>
                 </DivTitle>
-               {profile.orderHistory ? profile.orderHistory : <p>Você não realizou nenhum pedido</p>}
+               {/* {orderHistory ? orderHistory : <p>Você não realizou nenhum pedido</p>} */}
             </HistoryContainer>
         </ContainerProfile>
     )

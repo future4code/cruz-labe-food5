@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import GlobalStateContext from "../../global/GlobalStateContext";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
+import {useHistory} from 'react-router-dom'
 import Popper from "@material-ui/core/Popper";
 import Popover from "@material-ui/core/Popover";
 import Fade from "@material-ui/core/Fade";
@@ -12,7 +13,7 @@ import { useNoAddress } from "../../hooks/useNoAddress";
 import { useForm } from "../../hooks/useForm";
 import FoodCard from "../../components/FoodCard/FoodCard";
 import Loading from "../../components/Loading/Loading";
-import { goToEditAddressPage } from "../../routes/coordinator";
+import { goToCartPage, goToEditAddressPage } from "../../routes/coordinator";
 import { MainContainer, PopperContainer, CategoryName, RestaurantInfoContainer } from "./styled";
 
 const RestaurantPage = () => {
@@ -21,7 +22,7 @@ const RestaurantPage = () => {
   const [categories, setCategories] = useState([])
   const pathParams = useParams()
   const token = window.localStorage.getItem('token')
-
+  const history = useHistory()
 
   useProtectedPage();
   useNoAddress();
@@ -103,6 +104,7 @@ const RestaurantPage = () => {
             </>
           })}
         </>}
+        <button onClick={()=>goToCartPage(history)}>Carrinho</button>
     </MainContainer>
   )
 }

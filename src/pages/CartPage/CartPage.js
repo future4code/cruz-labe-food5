@@ -93,7 +93,7 @@ export const CartPage = () => {
 
   const placeOrder = (body) => {
     axios
-      .post(`${BASE_URL}/restaurants/${restaurantIdForCart}/order`, body, {
+      .post(`${BASE_URL}restaurants/${restaurantIdForCart}/order`, body, {
         headers: {
           auth: window.localStorage.getItem("token"),
         },
@@ -114,10 +114,7 @@ export const CartPage = () => {
     if (!payMethod) {
       alert("Selecione um método de pagamento!");
     } else if (Object.entries(cart).length !== 0) {
-      const productsArray = cart.filter((item) => {
-          return item.quantity > 0;
-        })
-        .map((product) => {
+      const productsArray = cart.map((product) => {
           return {
             id: product.id,
             quantity: product.quantity,
@@ -128,6 +125,7 @@ export const CartPage = () => {
         paymentMethod: payMethod,
       };
       placeOrder(body);
+      setCart([])
     } else {
       alert("Escolha um produto!");
     }
