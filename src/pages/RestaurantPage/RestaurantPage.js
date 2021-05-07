@@ -68,40 +68,40 @@ const RestaurantPage = () => {
             alert('Ocorreu um erro no sistema e estamos trabalhando para resolvê-lo. Por favor, tente novamente mais tarde.')
 
         }
-      );
-      const productsWithQuantity = restaurantDetails.data.restaurant.products.map(
-        (product) => {
-          return { ...product, quantity: 0 };
-        }
-      );
-      const categoriesOnly = restaurantDetails.data.restaurant.products.map(
-        (product) => {
-          return product.category;
-        }
-      );
-      const filteredCategoriesOnly = categoriesOnly.filter(
-        (category, index) => {
-          return categoriesOnly.indexOf(category) === index;
-        }
-      );
-      const restaurantCategories = filteredCategoriesOnly.map((category) => {
-        return {
-          category: category,
-          products: productsWithQuantity.filter((product) => {
-            return category === product.category;
-          }),
-        };
-      });
-      setCategories(restaurantCategories);
-      setRestaurantInfo(restaurantDetails.data.restaurant);
-    } catch (error) {
-      console.log(error.response);
-      alert(
-        "Ocorreu um erro no sistema e estamos trabalhando para resolvê-lo. Por favor, tente novamente mais tarde."
-      );
-    }
-  };
-
+      }
+      // );
+  //     const productsWithQuantity = restaurantDetails.data.restaurant.products.map(
+  //       (product) => {
+  //         return { ...product, quantity: 0 };
+  //       }
+  //     );
+  //     const categoriesOnly = restaurantDetails.data.restaurant.products.map(
+  //       (product) => {
+  //         return product.category;
+  //       }
+  //     );
+  //     const filteredCategoriesOnly = categoriesOnly.filter(
+  //       (category, index) => {
+  //         return categoriesOnly.indexOf(category) === index;
+  //       }
+  //     );
+  //     const restaurantCategories = filteredCategoriesOnly.map((category) => {
+  //       return {
+  //         category: category,
+  //         products: productsWithQuantity.filter((product) => {
+  //           return category === product.category;
+  //         }),
+  //       };
+  //     });
+  //     setCategories(restaurantCategories);
+  //     setRestaurantInfo(restaurantDetails.data.restaurant);
+  //   } catch (error) {
+  //     console.log(error.response);
+  //     alert(
+  //       "Ocorreu um erro no sistema e estamos trabalhando para resolvê-lo. Por favor, tente novamente mais tarde."
+  //     );
+  //   }
+  // };
 
     return (
         <MainContainer>

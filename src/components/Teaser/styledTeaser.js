@@ -3,7 +3,7 @@ import { defaultColor } from "../../constants/colors";
 
 export const TeaserContainer= styled.div`
   background-color: ${defaultColor};
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -11,7 +11,7 @@ export const TeaserContainer= styled.div`
 `;
 
 export const FoodLogo = styled.img`
-  width: 126px;
+  width: 100%;
   height: 65px;
   object-fit: contain;
 `;
