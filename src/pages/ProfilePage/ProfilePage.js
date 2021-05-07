@@ -61,58 +61,43 @@ const ProfilePage = () => {
         console.log(err);
       });
   };
-  return (
-    <ContainerProfile>
-      <Header>
-        <p>Meu perfil</p>
-      </Header>
-      <ProfileDiv>
-        <div>
-          <p>{profile.name}</p>
-          <p>{profile.email}</p>
-          <p>{profile.cpf}</p>
-        </div>
-        <Button onClick={() => goToEditProfilePage(history)}>
-          <EditOutlinedIcon />
-        </Button>
-      </ProfileDiv>
-      <AddressDiv>
-        <DivInfoAddress>
-          <DivButton>
-            <AddressTitle>Endereço cadastrado</AddressTitle>
-            <Button onClick={() => goToEditAddressPage(history)}>
-              <EditOutlinedIcon />
-            </Button>
-          </DivButton>
+//   return (
+//     <ContainerProfile>
+//       <Header>
+//         <p>Meu perfil</p>
+//       </Header>
+//       <ProfileDiv>
+//         <div>
+//           <p>{profile.name}</p>
+//           <p>{profile.email}</p>
+//           <p>{profile.cpf}</p>
+//         </div>
+//         <Button onClick={() => goToEditProfilePage(history)}>
+//           <EditOutlinedIcon />
+//         </Button>
+//       </ProfileDiv>
+//       <AddressDiv>
+//         <DivInfoAddress>
+//           <DivButton>
+//             <AddressTitle>Endereço cadastrado</AddressTitle>
+//             <Button onClick={() => goToEditAddressPage(history)}>
+//               <EditOutlinedIcon />
+//             </Button>
+//           </DivButton>
 
-          {profile.address}
+//           {profile.address}
 
-        </DivInfoAddress>
-      </AddressDiv>
-      <HistoryContainer>
-        <DivTitle>
-          <p>Histórico de pedidos</p>
-        </DivTitle>
-        {profile.orderHistory}
-      </HistoryContainer>
-    </ContainerProfile>
-  );
-};
-
-    const getOrderHistory = () => {
-        axios.get(`${BASE_URL}orders/history`, {
-            headers: {
-                auth: window.localStorage.getItem("token")
-            }
-        })
-            .then((res) => {
-                setOrderHistory(res.data.order)
-                console.log(res.data)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }
+//         </DivInfoAddress>
+//       </AddressDiv>
+//       <HistoryContainer>
+//         <DivTitle>
+//           <p>Histórico de pedidos</p>
+//         </DivTitle>
+//         {profile.orderHistory}
+//       </HistoryContainer>
+//     </ContainerProfile>
+//   );
+// };
     return (
         <ContainerProfile>
             <Header>

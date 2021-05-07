@@ -8,7 +8,7 @@ function Teaser() {
 
   setTimeout(() => {
     history.push("/login");
-  }, 5000);
+  }, 3000);
 
   return (
     <TeaserContainer>

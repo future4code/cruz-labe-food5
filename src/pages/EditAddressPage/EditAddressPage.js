@@ -11,20 +11,32 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import {IconButton} from "@material-ui/core";
 
 const EditAddressPage = () => {
+    const [fullAddress, setFullAddress] = useState({})
+    const [initialState, setInitialState] =  useState({
+        street: '',
+        number: '',
+        neighbourhood: '',
+        city: '',
+        state: '',
+        complement: ''
+    })
+    const [form, setForm, handleForm, resetForm] = useForm(initialState)
+    const history = useHistory();
+
     useEffect(() => {
         getFullAddress()
     },[])
-    const [fullAddress, setFullAddress] = useState({})
-    const InitialState =  {
-        street: fullAddress.street,
-        number: fullAddress.number,
-        neighbourhood: fullAddress.neighbourhood,
-        city: fullAddress.city,
-        state: fullAddress.state,
-        complement: fullAddress.complement
-    }
-    const [form, setForm, handleForm, resetForm] = useForm(InitialState)
-    const history = useHistory();
+
+    useEffect(() => {
+        setInitialState({
+            street: fullAddress.street,
+            number: fullAddress.number,
+            neighbourhood: fullAddress.neighbourhood,
+            city: fullAddress.city,
+            state: fullAddress.state,
+            complement: fullAddress.complement
+        })
+    },[fullAddress])
 
     const getFullAddress = () => {
         axios.get(`${BASE_URL}profile/address`, {
@@ -64,6 +76,7 @@ const EditAddressPage = () => {
 
     return (
         <DivContainer>
+            {console.log(fullAddress)}
             <Header>
                 <IconButton onClick={() => goToProfilePage(history)}><ArrowBackIosIcon/></IconButton>
                 <p>Endereço</p>

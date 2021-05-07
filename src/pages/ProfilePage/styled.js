@@ -50,31 +50,31 @@ export const DivButton = styled.div`
   justify-content: space-between;
 `;
 
-    display:flex;
-    align-items: flex-start;
-    width: 20.5rem;
-    margin: 1rem 1rem 0.5rem;
-    font-size: 1rem;
-    letter-spacing: -0.39px;
-    justify-content: space-between;   
-`
-export const AddressDiv = styled.div`
-    background-color: #eeeeee;
-`
-export const DivInfoAddress = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 21.5rem;
-`
-export const DivButton = styled.div`
-    width: 20.5rem; 
-    display:flex;
-    align-items: flex-start;
-    margin: 1rem 1rem 0.5rem;
-    font-size: 1rem;
-    letter-spacing: -0.39px;
-    justify-content: space-between;   
-`
+//     display:flex;
+//     align-items: flex-start;
+//     width: 20.5rem;
+//     margin: 1rem 1rem 0.5rem;
+//     font-size: 1rem;
+//     letter-spacing: -0.39px;
+//     justify-content: space-between;   
+// `
+// export const AddressDiv = styled.div`
+//     background-color: #eeeeee;
+// `
+// export const DivInfoAddress = styled.div`
+//     display: flex;
+//     flex-direction: column;
+//     width: 21.5rem;
+// `
+// export const DivButton = styled.div`
+//     width: 20.5rem; 
+//     display:flex;
+//     align-items: flex-start;
+//     margin: 1rem 1rem 0.5rem;
+//     font-size: 1rem;
+//     letter-spacing: -0.39px;
+//     justify-content: space-between;   
+// `
 
 export const Button = styled.div`
   cursor: pointer;

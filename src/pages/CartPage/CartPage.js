@@ -22,21 +22,42 @@ import {
 import CartFoodInfoCard from "../../components/CartFoodInfoCard/CartFoodInfoCard";
 import { getAddress, placeOrder } from "../../services/users";
 import { useHistory } from "react-router-dom";
+import axios from 'axios'
+import {BASE_URL} from '../../constants/urls'
 
-export default function CartPage() {
-  window.document.title = "4Food Y♥U";
-
+export const CartPage = () =>{
   const { cart, setCart } = useContext(GlobalStateContext);
   const [payMethod, setPayMethod] = useState("");
-  const [userAddress, setUserAddress] = useState(undefined);
+  const [profile, setProfile] = useState({});
+  // const [userAddress, setUserAddress] = useState(undefined);
   const history = useHistory();
 
   useEffect(() => {
-    getAddress(setUserAddress);
+    console.log('AAAAAHHHHH')
+    document.title = "4Food Y♥U";
+    getProfile();
   }, []);
+
   const handleChange = (e) => {
     setPayMethod(e.target.value);
   };
+
+  const getProfile = () => {
+    axios
+      .get(`${BASE_URL}profile`, {
+        headers: {
+          auth: window.localStorage.getItem("token"),
+        }
+      })
+      .then((res) => {
+        // setProfile(res.data.user);
+        console.log(res.data.user)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const addItem = (id) => {
     const newProducts = cart.cart.products.map((product) => {
       if (product.id === id) {
@@ -102,15 +123,10 @@ export default function CartPage() {
     }
     return 0;
   };
-  return (
-    <PackageContainer>
+  return <PackageContainer>
       <AddressContainer>
-        <AddressTitle>•Endereço de entrega•</AddressTitle>
-        {userAddress ? (
-          <p>{`${userAddress.street}, ${userAddress.number} - ${userAddress.neighbourhood}`}</p>
-        ) : (
-          <p>Buscando seu endereço...</p>
-        )}
+        <AddressTitle>Endereço de entrega</AddressTitle>
+          {/* {profile.address} */}
       </AddressContainer>
 
       {Object.entries(cart.cart).length !== 0 ? (
@@ -126,8 +142,8 @@ export default function CartPage() {
                 name={product.name}
                 description={product.description}
                 price={product.price}
-                addItem={addItem}
-                subtractItem={subtractItem}
+                addItem={()=>addItem(product.id)}
+                subtractItem={()=>subtractItem(product.id)}
               />
             );
           }
@@ -177,5 +193,7 @@ export default function CartPage() {
         <Button onClick={sendOrder}>Confirmar Compra♥</Button>
       </ButtonContainer>
     </PackageContainer>
-  );
+  // );
 }
+
+export default CartPage;
