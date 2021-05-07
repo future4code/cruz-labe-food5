@@ -3,9 +3,9 @@ import { BottomNav } from "./styledBottomNav";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
-import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
-import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
-import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
+import HomeIcon from "@material-ui/icons/Home";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import PersonIcon from "@material-ui/icons/Person";
 import { Route, useHistory } from "react-router-dom";
 import {
   goToCartPage,
@@ -26,7 +26,7 @@ const FooterNav = () => {
   const [value, setValue] = React.useState(0);
 
   return (
-    <Route exact path={["/home", "/cart", "/profile", "/restaurant/:id"]}>
+    <Route exact path={["/home", "/carrinho", "/perfil", "/restaurante/:id"]}>
       <BottomNav>
         <BottomNavigation
           value={value}
@@ -39,55 +39,41 @@ const FooterNav = () => {
           <Route exact path={["/home"]}>
             <BottomNavigationAction
               onClick={() => goToHomePage(history)}
-              icon={
-                <HomeOutlinedIcon color="primary" style={{ fontSize: 40 }} />
-              }
+              icon={<HomeIcon color="primary" style={{ fontSize: 40 }} />}
             />
           </Route>
-          <Route exact path={["/cart", "/profile", "/restaurant/:id"]}>
+          <Route exact path={["/carrinho", "/perfil", "/restaurante/:id"]}>
             <BottomNavigationAction
               onClick={() => goToHomePage(history)}
-              icon={
-                <HomeOutlinedIcon color="action" style={{ fontSize: 40 }} />
-              }
+              icon={<HomeIcon color="action" style={{ fontSize: 40 }} />}
             />
           </Route>
-          <Route exact path={["/cart"]}>
+          <Route exact path={["/carrinho"]}>
             <BottomNavigationAction
               onClick={() => goToCartPage(history)}
               icon={
-                <ShoppingCartOutlinedIcon
-                  color="primary"
-                  style={{ fontSize: 40 }}
-                />
+                <ShoppingCartIcon color="primary" style={{ fontSize: 40 }} />
               }
             />
           </Route>
-          <Route exact path={["/home", "/profile", "/restaurante:id"]}>
+          <Route exact path={["/home", "/perfil", "/restaurante/:id"]}>
             <BottomNavigationAction
               onClick={() => goToCartPage(history)}
               icon={
-                <ShoppingCartOutlinedIcon
-                  color="action"
-                  style={{ fontSize: 40 }}
-                />
+                <ShoppingCartIcon color="action" style={{ fontSize: 40 }} />
               }
             />
           </Route>
-          <Route exact path={["/profile"]}>
+          <Route exact path={["/perfil"]}>
             <BottomNavigationAction
               onClick={() => goToProfilePage(history)}
-              icon={
-                <PersonOutlineIcon color="primary" style={{ fontSize: 40 }} />
-              }
+              icon={<PersonIcon color="primary" style={{ fontSize: 40 }} />}
             />
           </Route>
-          <Route exact path={["/home", "/carrinho", "/restaurant/:id"]}>
+          <Route exact path={["/home", "/carrinho", "/restaurante/:id"]}>
             <BottomNavigationAction
               onClick={() => goToProfilePage(history)}
-              icon={
-                <PersonOutlineIcon color="action" style={{ fontSize: 40 }} />
-              }
+              icon={<PersonIcon color="action" style={{ fontSize: 40 }} />}
             />
           </Route>
         </BottomNavigation>

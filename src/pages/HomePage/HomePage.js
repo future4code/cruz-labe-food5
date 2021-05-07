@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import BottomNavigation from '../../components/NavigationBar/BottomNavigation'
+import BottomNavigation from '../../components/NavigationBar/FooterNav'
 import Breadcrumbs from '@material-ui/core/Breadcrumbs'
 import Link from '@material-ui/core/Link'
 import { CardContainer, ContainerHome, FoodImg, SearchForm } from './styled'
