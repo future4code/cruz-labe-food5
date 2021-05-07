@@ -28,7 +28,7 @@ import {goToHomePage} from '../../routes/coordinator'
 
 export const CartPage = () => {
   const { cart, setCart, restaurantIdForCart, setRestaurantIdForCart, restaurantShipping, 
-  setRestaurantShipping } = useContext(GlobalStateContext);
+  setRestaurantShipping, chosenRestaurant, setChosenRestaurant } = useContext(GlobalStateContext);
   const [payMethod, setPayMethod] = useState("");
   const [profile, setProfile] = useState({});
   // const [userAddress, setUserAddress] = useState(undefined);
@@ -93,13 +93,15 @@ export const CartPage = () => {
 
   const placeOrder = (body) => {
     axios
-      .post(`${BASE_URL}restaurants/${restaurantIdForCart}/order`, body, {
+      .post(`${BASE_URL}restaurants/${chosenRestaurant.id}/order`, body, {
         headers: {
           auth: window.localStorage.getItem("token"),
         },
       })
       .then((response) => {
+        alert(`Pedido realizado com sucesso em ${chosenRestaurant.name}.`)
         goToHomePage(history);
+        setCart([])
       })
       .catch((error) => {
         const errorArray = error.message.split(" ");
@@ -125,7 +127,6 @@ export const CartPage = () => {
         paymentMethod: payMethod,
       };
       placeOrder(body);
-      setCart([])
     } else {
       alert("Escolha um produto!");
     }
@@ -136,7 +137,7 @@ export const CartPage = () => {
       cart.forEach((item) => {
         sum += item.price * item.quantity;
       });
-      return restaurantShipping + sum;
+      return chosenRestaurant.shipping + sum;
     }
     return 0;
   };
@@ -172,7 +173,7 @@ export const CartPage = () => {
       {new Intl.NumberFormat("pt-br", {
         style: "currency",
         currency: "BRL",
-      }).format(restaurantShipping || 0)}
+      }).format(chosenRestaurant.shipping || 0)}
     </Shipping>
     <Total>
       <p>SUBTOTAL</p>

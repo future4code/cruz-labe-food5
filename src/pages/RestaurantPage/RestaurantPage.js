@@ -18,7 +18,7 @@ import { MainContainer, PopperContainer, CategoryName, RestaurantInfoContainer }
 
 const RestaurantPage = () => {
   const { cart, setCart } = useContext(GlobalStateContext)
-  const [restaurantInfo, setRestaurantInfo] = useState(false)
+  const [restaurantInfo, setRestaurantInfo] = useState({})
   const [categories, setCategories] = useState([])
   const pathParams = useParams()
   const token = window.localStorage.getItem('token')
@@ -90,8 +90,7 @@ const RestaurantPage = () => {
               {category.products.map((product) => {
                 return <>
                   <FoodCard
-                    restaurantId={restaurantInfo.id}
-                    restaurantShipping={restaurantInfo.shipping}
+                    restaurant={restaurantInfo}
                     product={product}
                     key={product.id}
                     name={product.name}

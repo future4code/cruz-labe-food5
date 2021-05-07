@@ -6,6 +6,7 @@ import { BASE_URL } from '../constants/urls'
 const GlobalState = (props) => {
   const [cart, setCart] = useState([]);
   const [restaurantIdForCart, setRestaurantIdForCart] = useState('')
+  const [chosenRestaurant, setChosenRestaurant] = useState({})
   const [restaurantShipping, setRestaurantShipping] = useState(0)
   const [fullAddress, setFullAddress] = useState({});
 
@@ -32,7 +33,9 @@ const GlobalState = (props) => {
     restaurantIdForCart, 
     setRestaurantIdForCart,
     restaurantShipping, 
-    setRestaurantShipping
+    setRestaurantShipping,
+    chosenRestaurant, 
+    setChosenRestaurant
   };
 
   return (
