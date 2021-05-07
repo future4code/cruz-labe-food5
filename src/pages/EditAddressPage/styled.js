@@ -29,10 +29,11 @@ export const Form = styled.form`
 
 export const StyledInput = styled(TextField)`
   width: 20.5rem;
-  height: 3.5rem;
+  height: 2.5rem;
 `;
 
 export const StyledButton = styled(Button)`
 width: 20.5rem;
 height: 3.5rem;
+margin-top: 6px;
 `;

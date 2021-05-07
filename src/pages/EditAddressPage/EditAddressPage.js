@@ -1,7 +1,5 @@
-/* eslint-disable no-unused-vars */
-
 import axios from 'axios'
-import React, {useEffect, useState} from 'react'
+import React, {useContext} from 'react'
 import { useHistory } from 'react-router'
 import { BASE_URL } from '../../constants/urls'
 import { useForm } from '../../hooks/useForm'
@@ -9,49 +7,20 @@ import { goToProfilePage } from '../../routes/coordinator'
 import { DivContainer, Form, Header, StyledButton, StyledInput } from './styled'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import {IconButton} from "@material-ui/core";
+import GlobalStateContext from "../../global/GlobalStateContext"
 
 const EditAddressPage = () => {
-    const [fullAddress, setFullAddress] = useState({})
-    const [initialState, setInitialState] =  useState({
-        street: '',
-        number: '',
-        neighbourhood: '',
-        city: '',
-        state: '',
-        complement: ''
-    })
+  const  {fullAddress} = useContext(GlobalStateContext)
+const initialState = {
+    street: fullAddress.street,
+    city: fullAddress.city,
+    number: fullAddress.number,
+    state: fullAddress.state,
+    neighbourhood: fullAddress.neighbourhood,
+    complement: fullAddress.complement
+}
     const [form, setForm, handleForm, resetForm] = useForm(initialState)
     const history = useHistory();
-
-    useEffect(() => {
-        getFullAddress()
-    },[])
-
-    useEffect(() => {
-        setInitialState({
-            street: fullAddress.street,
-            number: fullAddress.number,
-            neighbourhood: fullAddress.neighbourhood,
-            city: fullAddress.city,
-            state: fullAddress.state,
-            complement: fullAddress.complement
-        })
-    },[fullAddress])
-
-    const getFullAddress = () => {
-        axios.get(`${BASE_URL}profile/address`, {
-            headers: {
-                auth: window.localStorage.getItem("token")
-            }
-        })
-        .then((res) => {
-            setFullAddress(res.data.address)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-    }
-
     const editAddress = () => {
         axios.put(`${BASE_URL}address`, form, {
             headers: {
@@ -68,15 +37,12 @@ const EditAddressPage = () => {
                 resetForm()
             })
     }
-
     const handleClick = (event) => {
         editAddress()
         event.preventDefault()
     };
-
     return (
         <DivContainer>
-            {console.log(fullAddress)}
             <Header>
                 <IconButton onClick={() => goToProfilePage(history)}><ArrowBackIosIcon/></IconButton>
                 <p>Endereço</p>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { BASE_URL } from "../../constants/urls";
 import axios from "axios";
 import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
@@ -19,14 +19,18 @@ import {
   goToEditProfilePage,
 } from "../../routes/coordinator";
 import { useHistory } from "react-router";
+import GlobalStateContext from "../../global/GlobalStateContext"
+
 
 const ProfilePage = () => {
+  const {setFullAddress, fullAddress} = useContext(GlobalStateContext)
+
   const history = useHistory();
   const [profile, setProfile] = useState({});
   const [orderHistory, setOrderHistory] = useState({});
- 
 
   useEffect(() => {
+    setFullAddress(fullAddress)
     getProfile();
     getOrderHistory();
   }, []);
@@ -61,48 +65,8 @@ const ProfilePage = () => {
         console.log(err);
       });
   };
-//   return (
-//     <ContainerProfile>
-//       <Header>
-//         <p>Meu perfil</p>
-//       </Header>
-//       <ProfileDiv>
-//         <div>
-//           <p>{profile.name}</p>
-//           <p>{profile.email}</p>
-//           <p>{profile.cpf}</p>
-//         </div>
-//         <Button onClick={() => goToEditProfilePage(history)}>
-//           <EditOutlinedIcon />
-//         </Button>
-//       </ProfileDiv>
-//       <AddressDiv>
-//         <DivInfoAddress>
-//           <DivButton>
-//             <AddressTitle>Endereço cadastrado</AddressTitle>
-//             <Button onClick={() => goToEditAddressPage(history)}>
-//               <EditOutlinedIcon />
-//             </Button>
-//           </DivButton>
-
-//           {profile.address}
-
-//         </DivInfoAddress>
-//       </AddressDiv>
-//       <HistoryContainer>
-//         <DivTitle>
-//           <p>Histórico de pedidos</p>
-//         </DivTitle>
-//         {profile.orderHistory}
-//       </HistoryContainer>
-//     </ContainerProfile>
-//   );
-// };
     return (
         <ContainerProfile>
-            <Header>
-                <p>Meu perfil</p>
-            </Header>
             <ProfileDiv>
                 <div>
                     <p>{profile.name}</p>
