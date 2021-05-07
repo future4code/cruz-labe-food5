@@ -5,12 +5,13 @@ import Link from '@material-ui/core/Link'
 import { CardContainer, ContainerHome, FoodImg, SearchForm } from './styled'
 import TextField from '@material-ui/core/TextField'
 import { useProtectedPage } from '../../hooks/useProtectedPage'
-import { useHistory } from 'react-router'
+import { useHistory } from 'react-router-dom'
 import useRequestData from '../../hooks/useRequestData'
 import {BASE_URL} from '../../constants/urls'
 import { CardContent } from '@material-ui/core'
 import { useForm } from '../../hooks/useForm'
 import axios from 'axios'
+import { goToRestaurantPage } from '../../routes/coordinator'
 
 
 const HomePage =()=> {
@@ -79,6 +80,8 @@ const HomePage =()=> {
         setRenderedRestaurants(newRender)
     }
 
+
+
     return (
         <ContainerHome>
             <div>
@@ -95,15 +98,15 @@ const HomePage =()=> {
             <Breadcrumbs aria-label="breadcrumb">
                 {categories && categories.map((category) =>{
                     return(
-                        <Link color="inherit" href="/" onClick={() => handleClick(category)}>
+                        <p color="inherit" href="/" onClick={() => handleClick(category)}>
                             {category}
-                        </Link>
+                        </p>
                     )
                 })}
             </Breadcrumbs>
             {renderedRestaurants && renderedRestaurants.map((restaurants) => {
             return (
-             <CardContainer>
+             <CardContainer onClick={() => history.push(`/restaurant/${restaurants.id}`)}>
             <FoodImg src={restaurants.logoUrl} alt="logo_restaurante"/>
             <CardContent>
              <p>{restaurants.name}</p>
