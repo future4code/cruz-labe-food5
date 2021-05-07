@@ -10,15 +10,19 @@ import useRequestData from '../../hooks/useRequestData'
 import {BASE_URL} from '../../constants/urls'
 import { CardContent } from '@material-ui/core'
 import { useForm } from '../../hooks/useForm'
+import axios from 'axios'
 
 
 const HomePage =()=> {
     useProtectedPage()
     const history = useHistory()
-    const restaurants = useRequestData([], `${BASE_URL}restaurants`).restaurants
+    // const restaurants = useRequestData([], `${BASE_URL}restaurants`).restaurants
     const [form, setForm, handleForm, resetForm] = useForm({search:''})
     const [renderedRestaurants, setRenderedRestaurants] = useState([])
+    const [categories, setCategories] = useState([])
+    const [restaurants, setRestaurants] = useState([])
     
+
     useEffect(() => {
         setRenderedRestaurants(restaurants)
     },[restaurants]) 
@@ -28,9 +32,33 @@ const HomePage =()=> {
         console.log(form.search)
     }, [form.search])
 
+    useEffect(() =>{
+        getRestaurants()
+    },[])
 
-    const searchRestaurants= (event) => {
-        event.preventDefault()
+    const getRestaurants = async() =>{
+        try{
+            const res = await axios.get(`${BASE_URL}restaurants`, {
+                headers:{
+                    auth: window.localStorage.getItem('token')
+                }
+            })
+            const restaurantCategories = res.data.restaurants.map((restaurants) =>{
+                return(restaurants.category) 
+            })
+            const singleCategory = restaurantCategories.filter((category, index) => {
+                return(restaurantCategories.indexOf(category) === index)
+            })
+            setCategories(singleCategory)
+            setRestaurants(res.data.restaurants)
+        }catch(err){
+            console.log(err)
+        }
+        
+    }
+
+
+    const searchRestaurants= () => {
         if (form.search) {
             let newRestaurants = restaurants.filter((restaurants) => {
                 return (restaurants.name.toLowerCase().includes(form.search.toLowerCase()) || restaurants.category.toLowerCase().includes(form.search.toLowerCase()))
@@ -40,15 +68,20 @@ const HomePage =()=> {
             setRenderedRestaurants(restaurants)
         }
     }
-    
 
-    const handleClick = (event) => {
-        event.preventDefault();
-        console.info('You clicked a breadcrumb.');
-      }
+
+    const handleClick = (category) => {
+        const newRender = restaurants.filter((restaurants) => {
+            return(
+                category === restaurants.category
+            )
+        })
+        setRenderedRestaurants(newRender)
+    }
+
     return (
         <ContainerHome>
-            <SearchForm>
+            <div>
             <TextField
                 label='search'
                 value={form.search}
@@ -57,20 +90,18 @@ const HomePage =()=> {
                 type="text"
                 variant="outlined"
                 />
-            </SearchForm>
+            </div>
         
             <Breadcrumbs aria-label="breadcrumb">
-                <Link color="inherit" href="/" onClick={handleClick}>
-                Material-UI
-                </Link>
-                <Link color="inherit" href="/getting-started/installation/" onClick={handleClick}>
-                Core
-                </Link>
-                <Link color="inherit" href="/getting-started/installation/" onClick={handleClick}>
-                Core
-                </Link>
+                {categories && categories.map((category) =>{
+                    return(
+                        <Link color="inherit" href="/" onClick={() => handleClick(category)}>
+                            {category}
+                        </Link>
+                    )
+                })}
             </Breadcrumbs>
-            {restaurants && restaurants.map((restaurants) => {
+            {renderedRestaurants && renderedRestaurants.map((restaurants) => {
             return (
              <CardContainer>
             <FoodImg src={restaurants.logoUrl} alt="logo_restaurante"/>
