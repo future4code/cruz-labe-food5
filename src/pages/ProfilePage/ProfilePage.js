@@ -1,10 +1,8 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { BASE_URL } from "../../constants/urls";
 import axios from "axios";
 import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 import {
-  NewAddress,
   AddressDiv,
   ContainerProfile,
   ProfileDiv,
@@ -26,7 +24,7 @@ const ProfilePage = () => {
   const history = useHistory();
   const [profile, setProfile] = useState({});
   const [orderHistory, setOrderHistory] = useState({});
-  const [userAddress, setUserAddress] = useState(undefined);
+ 
 
   useEffect(() => {
     getProfile();
@@ -89,13 +87,6 @@ const ProfilePage = () => {
 
           {profile.address}
 
-          <NewAddress>
-            {userAddress ? (
-              <p>{`${userAddress.street}, ${userAddress.number} - ${userAddress.neighbourhood}`}</p>
-            ) : (
-              <p>Buscando seu endereço..</p>
-            )}
-          </NewAddress>
         </DivInfoAddress>
       </AddressDiv>
       <HistoryContainer>
@@ -107,5 +98,54 @@ const ProfilePage = () => {
     </ContainerProfile>
   );
 };
+
+    const getOrderHistory = () => {
+        axios.get(`${BASE_URL}orders/history`, {
+            headers: {
+                auth: window.localStorage.getItem("token")
+            }
+        })
+            .then((res) => {
+                setOrderHistory(res.data.order)
+                console.log(res.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+    return (
+        <ContainerProfile>
+            <Header>
+                <p>Meu perfil</p>
+            </Header>
+            <ProfileDiv>
+                <div>
+                    <p>{profile.name}</p>
+                    <p>{profile.email}</p>
+                    <p>{profile.cpf}</p>
+                </div>
+                <Button onClick={() => goToEditProfilePage(history)}><EditOutlinedIcon /></Button>
+            </ProfileDiv>
+
+         <AddressDiv>
+                <DivButton>
+                    <div>
+                        <AddressTitle>Endereço cadastrado</AddressTitle>
+                        {profile.address}
+                    </div>  
+                    <Button onClick={() => goToEditAddressPage(history)}><EditOutlinedIcon /></Button>
+                </DivButton>
+        </AddressDiv> 
+
+            <HistoryContainer>
+                <DivTitle>
+                    <p>Histórico de pedidos</p>
+                </DivTitle>
+               {profile.orderHistory ? profile.orderHistory : <p>Você não realizou nenhum pedido</p>}
+            </HistoryContainer>
+        </ContainerProfile>
+    )
+}
+
 
 export default ProfilePage;

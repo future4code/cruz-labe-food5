@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 
 import axios from 'axios'
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { useHistory } from 'react-router'
 import { BASE_URL } from '../../constants/urls'
 import { useForm } from '../../hooks/useForm'
@@ -10,18 +10,35 @@ import { DivContainer, Form, Header, StyledButton, StyledInput } from './styled'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import {IconButton} from "@material-ui/core";
 
-const InitialState = {
-    street: "",
-    number: "",
-    neighbourhood: "",
-    city: "",
-    state: "",
-    complement: ""
-}
 const EditAddressPage = () => {
+    useEffect(() => {
+        getFullAddress()
+    },[])
+    const [fullAddress, setFullAddress] = useState({})
+    const InitialState =  {
+        street: fullAddress.street,
+        number: fullAddress.number,
+        neighbourhood: fullAddress.neighbourhood,
+        city: fullAddress.city,
+        state: fullAddress.state,
+        complement: fullAddress.complement
+    }
     const [form, setForm, handleForm, resetForm] = useForm(InitialState)
     const history = useHistory();
 
+    const getFullAddress = () => {
+        axios.get(`${BASE_URL}profile/address`, {
+            headers: {
+                auth: window.localStorage.getItem("token")
+            }
+        })
+        .then((res) => {
+            setFullAddress(res.data.address)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
 
     const editAddress = () => {
         axios.put(`${BASE_URL}address`, form, {

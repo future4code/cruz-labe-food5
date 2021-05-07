@@ -3,7 +3,7 @@
 
 ![image](https://user-images.githubusercontent.com/77943169/116927678-5afffc00-ac32-11eb-87d1-aab6e7a5d162.png)
 
-📝️ Sobre
+📝️ Sobre 
 Projeto Final do módulo de Frontend da Labenu. 
 A ideia foi desenvolver um aplicativo parecido com o IFood, cujo usuário acessa sua conta, altera seus dados (caso já possua cadastrado), se for usuário novo é possível se cadastrar, faz os pedidos, acessa o carrinho de compras, finaliza a compra e verifica o tempo de espera do pedido. 
 Para o desenvolvimento do projeto, foi utilizada a API: https://documenter.getpostman.com/view/7549981/SWTEdGtT .
@@ -56,9 +56,14 @@ Para o desenvolvimento do projeto, foi utilizada a API: https://documenter.getpo
 
 • Página de Abertura (Teaser);
 
+• Página HOME;
+
 • Página de Login;
 
 • Página de Cadastro;
+
+• Página de Detalhes dos Restaurantes;
+
 
 </br>
 ❎ O que não funciona:
