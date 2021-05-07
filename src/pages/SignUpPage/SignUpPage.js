@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { BASE_URL } from "../../constants/urls";
 import logo from "../../assets/logo-future-eats-invert.png";
