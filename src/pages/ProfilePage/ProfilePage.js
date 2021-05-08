@@ -9,11 +9,11 @@ import {
   Button,
   HistoryContainer,
   AddressTitle,
-  Header,
   DivTitle,
-  DivInfoAddress,
+  Name,
   DivButton,
   CardOrder,
+  Date
 } from "./styled";
 import {
   goToEditAddressPage,
@@ -71,9 +71,9 @@ const ProfilePage = () => {
   const orderList = orderHistory.map((order) => {
     return (
       <CardOrder>
-        <p>{order.restaurantName}</p>
-        <p>{formatDate(order.expiresAt)}</p>
-        <p>{order.totalPrice}</p>
+        <Name>{order.restaurantName}</Name>
+        <Date>{formatDate(order.expiresAt)}</Date>
+        <p>Subtotal: R${order.totalPrice}</p>
       </CardOrder>
     )
   })
