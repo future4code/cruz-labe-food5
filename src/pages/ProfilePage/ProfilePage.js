@@ -13,6 +13,7 @@ import {
   DivTitle,
   DivInfoAddress,
   DivButton,
+  CardOrder,
 } from "./styled";
 import {
   goToEditAddressPage,
@@ -20,14 +21,15 @@ import {
 } from "../../routes/coordinator";
 import { useHistory } from "react-router";
 import GlobalStateContext from "../../global/GlobalStateContext"
+import { formatDate } from "../../services/utilitiesDate";
 
 
 const ProfilePage = () => {
-  const {setFullAddress, fullAddress} = useContext(GlobalStateContext)
+  const { setFullAddress, fullAddress } = useContext(GlobalStateContext)
 
   const history = useHistory();
   const [profile, setProfile] = useState({});
-  const [orderHistory, setOrderHistory] = useState({});
+  const [orderHistory, setOrderHistory] = useState([]);
 
   useEffect(() => {
     setFullAddress(fullAddress)
@@ -58,42 +60,53 @@ const ProfilePage = () => {
         },
       })
       .then((res) => {
-        setOrderHistory(res.data.order);
+        setOrderHistory(res.data.orders);
         console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
   };
+
+  const orderList = orderHistory.map((order) => {
     return (
-        <ContainerProfile>
-            <ProfileDiv>
-                <div>
-                    <p>{profile.name}</p>
-                    <p>{profile.email}</p>
-                    <p>{profile.cpf}</p>
-                </div>
-                <Button onClick={() => goToEditProfilePage(history)}><EditOutlinedIcon /></Button>
-            </ProfileDiv>
-
-         <AddressDiv>
-                <DivButton>
-                    <div>
-                        <AddressTitle>Endereço cadastrado</AddressTitle>
-                        {profile.address}
-                    </div>  
-                    <Button onClick={() => goToEditAddressPage(history)}><EditOutlinedIcon /></Button>
-                </DivButton>
-        </AddressDiv> 
-
-            <HistoryContainer>
-                <DivTitle>
-                    <p>Histórico de pedidos</p>
-                </DivTitle>
-               {/* {orderHistory ? orderHistory : <p>Você não realizou nenhum pedido</p>} */}
-            </HistoryContainer>
-        </ContainerProfile>
+      <CardOrder>
+        <p>{order.restaurantName}</p>
+        <p>{formatDate(order.expiresAt)}</p>
+        <p>{order.totalPrice}</p>
+      </CardOrder>
     )
+  })
+
+  return (
+    <ContainerProfile>
+      <ProfileDiv>
+        <div>
+          <p>{profile.name}</p>
+          <p>{profile.email}</p>
+          <p>{profile.cpf}</p>
+        </div>
+        <Button onClick={() => goToEditProfilePage(history)}><EditOutlinedIcon /></Button>
+      </ProfileDiv>
+
+      <AddressDiv>
+        <DivButton>
+          <div>
+            <AddressTitle>Endereço cadastrado</AddressTitle>
+            {profile.address}
+          </div>
+          <Button onClick={() => goToEditAddressPage(history)}><EditOutlinedIcon /></Button>
+        </DivButton>
+      </AddressDiv>
+
+      <HistoryContainer>
+        <DivTitle>
+          <p>Histórico de pedidos</p>
+        </DivTitle>
+        {orderList}
+      </HistoryContainer>
+    </ContainerProfile>
+  )
 }
 
 
