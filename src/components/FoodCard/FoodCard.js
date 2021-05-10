@@ -1,7 +1,6 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import { FoodCardContainer, PopperContainer } from './style'
 import Popover from '@material-ui/core/Popover'
-import TextField from '@material-ui/core/TextField'
 import Select from '@material-ui/core/Select'
 import {useForm} from '../../hooks/useForm'
 import MenuItem from '@material-ui/core/MenuItem'
