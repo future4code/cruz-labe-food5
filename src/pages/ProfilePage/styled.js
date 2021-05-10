@@ -47,10 +47,21 @@ export const DivTitle = styled.div`
     width: 20.5rem;
 `
 export const CardOrder = styled.div`
-  width: 20.5rem;
-  height: 6.375rem;
-  margin: 0.438rem 0 0;
-  padding: 1rem;
-  border-radius: 8px;
-  border: solid 1px var(--greyish);
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+width: 20.5rem;
+height: 6.375rem;
+margin: 0.438rem 0 0;
+padding: 1rem;
+border-radius: 8px;
+border: solid 1px grey;
+`
+
+export const Name = styled.p`
+    color: red;
+`
+
+export const Date = styled.p`
+    font-size: 12px;
 `
