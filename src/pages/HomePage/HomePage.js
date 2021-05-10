@@ -1,17 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import BottomNavigation from '../../components/NavigationBar/FooterNav'
 import Breadcrumbs from '@material-ui/core/Breadcrumbs'
-import Link from '@material-ui/core/Link'
-import { CardContainer, ContainerHome, FoodImg, SearchForm } from './styled'
+import { CardContainer, ContainerHome, FoodImg } from './styled'
 import TextField from '@material-ui/core/TextField'
 import { useProtectedPage } from '../../hooks/useProtectedPage'
 import { useHistory } from 'react-router-dom'
-import useRequestData from '../../hooks/useRequestData'
 import {BASE_URL} from '../../constants/urls'
 import { CardContent } from '@material-ui/core'
 import { useForm } from '../../hooks/useForm'
 import axios from 'axios'
-import { goToRestaurantPage } from '../../routes/coordinator'
 
 
 const HomePage =()=> {
@@ -95,7 +92,7 @@ const HomePage =()=> {
             <Breadcrumbs aria-label="breadcrumb">
                 {categories && categories.map((category) =>{
                     return(
-                        <p color="inherit" href="/" onClick={() => handleClick(category)}>
+                        <p cursor='pointer' color="inherit" href="/" onClick={() => handleClick(category)}>
                             {category}
                         </p>
                     )

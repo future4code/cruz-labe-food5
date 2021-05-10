@@ -3,18 +3,14 @@ import React, { useState, useEffect, useContext } from "react";
 import GlobalStateContext from "../../global/GlobalStateContext";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import {useHistory} from 'react-router-dom'
-import Popper from "@material-ui/core/Popper";
-import Popover from "@material-ui/core/Popover";
-import Fade from "@material-ui/core/Fade";
 import { useParams } from "react-router-dom";
 import { BASE_URL } from "../../constants/urls";
 import axios from "axios";
 import { useNoAddress } from "../../hooks/useNoAddress";
-import { useForm } from "../../hooks/useForm";
 import FoodCard from "../../components/FoodCard/FoodCard";
 import Loading from "../../components/Loading/Loading";
-import { goToCartPage, goToEditAddressPage } from "../../routes/coordinator";
-import { MainContainer, PopperContainer, CategoryName, RestaurantInfoContainer } from "./styled";
+import { goToCartPage } from "../../routes/coordinator";
+import { MainContainer, CategoryName, RestaurantInfoContainer } from "./styled";
 
 const RestaurantPage = () => {
   const { cart, setCart } = useContext(GlobalStateContext)
