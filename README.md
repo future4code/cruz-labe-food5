@@ -28,7 +28,7 @@ Para o desenvolvimento do projeto, foi utilizada a API: https://documenter.getpo
 
 🔗 Link do Surge:</br>
 
-<a>labefood5-cruz.surge.sh</a>
+<a href="labefood5-cruz.surge.sh">labefood5-cruz.surge.sh</a>
 
 </br>
 
