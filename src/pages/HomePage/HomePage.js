@@ -70,7 +70,6 @@ const HomePage =()=> {
         }
     }
 
-
     const handleClick = (category) => {
         const newRender = restaurants.filter((restaurants) => {
             return(
@@ -79,8 +78,6 @@ const HomePage =()=> {
         })
         setRenderedRestaurants(newRender)
     }
-
-
 
     return (
         <ContainerHome>
