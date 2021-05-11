@@ -1,8 +1,8 @@
  *4FOOD Y♥u*
 
-<img src='https://github.com/future4code/cruz-labe-food5/blob/master/src/assets/logofourfood.png?raw=true' width='200px' align-item= center />
+<img src='https://github.com/future4code/cruz-labe-food5/blob/master/src/assets/logofourfood.png?raw=true' width='300px' align-item= 'center' />
 
-![image](https://user-images.githubusercontent.com/77943169/116927678-5afffc00-ac32-11eb-87d1-aab6e7a5d162.png)
+
 
 📝️ Sobre 
 Projeto Final do módulo de Frontend da Labenu. 
@@ -11,7 +11,9 @@ Para o desenvolvimento do projeto, foi utilizada a API: https://documenter.getpo
 
 
 
-<img src= 'https://vocesa.abril.com.br/wp-content/uploads/2021/03/vcsa274_ti_tt.png' width='55px'/> Integrantes:
+<img src= 'https://vocesa.abril.com.br/wp-content/uploads/2021/03/vcsa274_ti_tt.png' width='55px'/> 
+
+![image](https://user-images.githubusercontent.com/77943169/116927678-5afffc00-ac32-11eb-87d1-aab6e7a5d162.png)Integrantes:
 
 • Beatriz Lisboa
 
