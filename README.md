@@ -1,6 +1,6 @@
- <div align=”center”>*4FOOD Y♥u*</div>
+ <div align= 'center'>*4FOOD Y♥u*</div>
 
-<img src='https://github.com/future4code/cruz-labe-food5/blob/master/src/assets/logofourfood.png?raw=true' width='300px' align= 'center' />
+<img src='https://github.com/future4code/cruz-labe-food5/blob/master/src/assets/logofourfood.png?raw=true' width='300px' align= "center" />
 
   
 
