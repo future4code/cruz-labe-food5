@@ -13,7 +13,7 @@ Para o desenvolvimento do projeto, foi utilizada a API: https://documenter.getpo
 
 </br>
 </br>
-<img src= 'https://user-images.githubusercontent.com/77943169/116927678-5afffc00-ac32-11eb-87d1-aab6e7a5d162.png' width='45px'/><b>Integrantes:</b>
+<img src= 'https://user-images.githubusercontent.com/77943169/116927678-5afffc00-ac32-11eb-87d1-aab6e7a5d162.png' width='45px'/>Integrantes:
 
 • Beatriz Lisboa
 
@@ -35,7 +35,7 @@ Para o desenvolvimento do projeto, foi utilizada a API: https://documenter.getpo
 
 </br>
 
-#🎨 🧑 🎨 <b>layout:</b>
+#🎨 🧑 🎨 <b>Layout:</b>
 
 • React JS
 
@@ -78,5 +78,7 @@ Para o desenvolvimento do projeto, foi utilizada a API: https://documenter.getpo
 ❎ <b>O que não funciona:</b>
 
 • Footer instável;
-• Ao cadastrar, se houver dados parecidos com os dados de algum usuário já cadastrado, a página envia um alerta e ao dar ok, o que foi inserido para cadastro/edição apaga automaticamente;
-• ícone Home duplicado na página de perfil; 
+
+• Navegação ao criar ou editar perfil;
+
+• Ícone Home duplicado na página de perfil; 
