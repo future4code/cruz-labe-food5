@@ -1,4 +1,4 @@
- <div align= 'center'>*4FOOD Y♥u*</div>
+ <div align= 'center'><b>*4FOOD Y♥u*</b></div>
 
 <img src='https://github.com/future4code/cruz-labe-food5/blob/master/src/assets/logofourfood.png?raw=true' width='300px' align= "center" />
 
@@ -11,7 +11,7 @@ Projeto Final do módulo de Frontend da Labenu.
 A ideia foi desenvolver um aplicativo parecido com o IFood, cujo usuário acessa sua conta, altera seus dados (caso já possua cadastrado), se for usuário novo é possível se cadastrar, faz os pedidos, acessa o carrinho de compras, finaliza a compra e verifica o tempo de espera do pedido. 
 Para o desenvolvimento do projeto, foi utilizada a API: https://documenter.getpostman.com/view/7549981/SWTEdGtT .
 
-
+</br>
 
 <img src= 'https://user-images.githubusercontent.com/77943169/116927678-5afffc00-ac32-11eb-87d1-aab6e7a5d162.png' width='55px'/> Integrantes:
 
