@@ -1,8 +1,8 @@
- *4FOOD Y♥u*
+ <div align=”center”>*4FOOD Y♥u*</div>
 
-<img src='https://github.com/future4code/cruz-labe-food5/blob/master/src/assets/logofourfood.png?raw=true' width='300px' align-item= 'center' />
+<img src='https://github.com/future4code/cruz-labe-food5/blob/master/src/assets/logofourfood.png?raw=true' width='300px' align= 'center' />
 
-
+  
 
 📝️ Sobre 
 Projeto Final do módulo de Frontend da Labenu. 
