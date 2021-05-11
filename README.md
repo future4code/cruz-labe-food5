@@ -1,4 +1,4 @@
-*4FOOD Y♥u*
+<align-items : center *4FOOD Y♥u* />
 
 <img src='https://github.com/future4code/cruz-labe-food5/blob/master/src/assets/logofourfood.png?raw=true' />
 
