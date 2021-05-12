@@ -1,19 +1,19 @@
  <div align= 'center'><b>*4FOOD Y♥u*</b></div>
 
 <div align= 'center'><img src='https://github.com/future4code/cruz-labe-food5/blob/master/src/assets/4foodvideo.gif?raw=true' width= '30%' class="leftAlign" style="width:30%" /></div>
-
+</ BR>
   
 
 📝️ <b>Sobre</b> 
 Projeto Final do módulo de Frontend da Labenu. 
 
-<img src='https://github.com/future4code/cruz-labe-food5/blob/master/src/assets/logofourfood.png?raw=true' width='300px' />A ideia foi desenvolver um aplicativo parecido com o IFood, cujo usuário acessa sua conta, altera seus dados (caso já possua cadastrado), se for usuário novo é possível se cadastrar, faz os pedidos, acessa o carrinho de compras, finaliza a compra e verifica o tempo de espera do pedido. 
+<img src='https://github.com/future4code/cruz-labe-food5/blob/master/src/assets/logofourfood.png?raw=true' width='35%' class="leftAlign" style="width:30% />A ideia foi desenvolver um aplicativo parecido com o IFood, cujo usuário acessa sua conta, altera seus dados (caso já possua cadastrado), se for usuário novo é possível se cadastrar, faz os pedidos, acessa o carrinho de compras, finaliza a compra e verifica o tempo de espera do pedido. class="leftAlign" style="width:30%
 Para o desenvolvimento do projeto, foi utilizada a API: https://documenter.getpostman.com/view/7549981/SWTEdGtT .
 
 </br>
 </br>
 
-<img src= 'https://user-images.githubusercontent.com/77943169/116927678-5afffc00-ac32-11eb-87d1-aab6e7a5d162.png' width='40px'/>Integrantes:
+<img src= 'https://user-images.githubusercontent.com/77943169/116927678-5afffc00-ac32-11eb-87d1-aab6e7a5d162.png' width='55px'/>Integrantes:
 
 • Beatriz Lisboa
 
