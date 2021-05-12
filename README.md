@@ -1,6 +1,6 @@
  <div align= 'center'><b>*4FOOD Y♥u*</b></div>
 
-<div align= 'center'><img src='https://github.com/future4code/cruz-labe-food5/blob/master/src/assets/4foodvideo.gif?raw=true' width= '30%' class="leftAlign" style="width:30%" /></div>
+<div align= 'center'><img src='https://github.com/future4code/cruz-labe-food5/blob/master/src/assets/4foodvideo.gif' width= '30%' class="leftAlign" style="width:30%" /></div>
 </ br>
   
 
