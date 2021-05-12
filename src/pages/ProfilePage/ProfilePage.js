@@ -13,29 +13,28 @@ import {
   Name,
   DivButton,
   CardOrder,
-  Date
+  Date,
 } from "./styled";
 import {
   goToEditAddressPage,
   goToEditProfilePage,
 } from "../../routes/coordinator";
 import { useHistory } from "react-router";
-import GlobalStateContext from "../../global/GlobalStateContext"
+import GlobalStateContext from "../../global/GlobalStateContext";
 import { formatDate } from "../../services/utilitiesDate";
 
-
 const ProfilePage = () => {
-  const { setFullAddress, fullAddress } = useContext(GlobalStateContext)
+  const { setFullAddress, fullAddress } = useContext(GlobalStateContext);
 
   const history = useHistory();
   const [profile, setProfile] = useState({});
   const [orderHistory, setOrderHistory] = useState([]);
 
   useEffect(() => {
-    setFullAddress(fullAddress)
+    setFullAddress(fullAddress);
     getProfile();
     getOrderHistory();
-  }, []);
+  }, [fullAddress, setFullAddress]);
 
   const getProfile = () => {
     axios
@@ -75,8 +74,8 @@ const ProfilePage = () => {
         <Date>{formatDate(order.expiresAt)}</Date>
         <p>Subtotal: R${order.totalPrice}</p>
       </CardOrder>
-    )
-  })
+    );
+  });
 
   return (
     <ContainerProfile>
@@ -86,7 +85,9 @@ const ProfilePage = () => {
           <p>{profile.email}</p>
           <p>{profile.cpf}</p>
         </div>
-        <Button onClick={() => goToEditProfilePage(history)}><EditOutlinedIcon /></Button>
+        <Button onClick={() => goToEditProfilePage(history)}>
+          <EditOutlinedIcon />
+        </Button>
       </ProfileDiv>
 
       <AddressDiv>
@@ -95,7 +96,9 @@ const ProfilePage = () => {
             <AddressTitle>Endereço cadastrado</AddressTitle>
             {profile.address}
           </div>
-          <Button onClick={() => goToEditAddressPage(history)}><EditOutlinedIcon /></Button>
+          <Button onClick={() => goToEditAddressPage(history)}>
+            <EditOutlinedIcon />
+          </Button>
         </DivButton>
       </AddressDiv>
 
@@ -106,8 +109,7 @@ const ProfilePage = () => {
         {orderList}
       </HistoryContainer>
     </ContainerProfile>
-  )
-}
-
+  );
+};
 
 export default ProfilePage;
