@@ -48,11 +48,11 @@ Projeto Final do módulo de Frontend da Labenu.
 
 • Context
 
-• DAYJS
-
 • API: https://documenter.getpostman.com/view/7549981/SWTEdGtT
 
 • Trello: https://trello.com/invite/b/VZ2UWjyA/1c5f50f8c23c8f5c25161c11086f3d6a/template-kanban
+
+• Zeplin: https://app.zeplin.io/project/5dd5ab8e5fb2a0060f81698f/screen/5dd5abb8053268bc95db6469
 </br>
 </br>
 
