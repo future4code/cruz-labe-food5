@@ -72,6 +72,8 @@ Projeto Final do módulo de Frontend da Labenu.
 
 • Página de Carrinho;
 
+• Implementação de Data/Hora em tempo real;
+
 
 </br>
 ❎ <b>O que não funciona:</b>
