@@ -1,68 +1,85 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ <div align= 'center'><b>*4FOOD Y♥u*</b></div>
 
-## Available Scripts
+<div align= 'center'><img src='https://github.com/future4code/cruz-labe-food5/blob/master/src/assets/4foodvideo.gif' width= '30%' class="leftAlign" style="width:30%" /></div>
+</ br>
+  
 
-In the project directory, you can run:
+📝️ <b>Sobre</b> 
+Projeto Final do módulo de Frontend da Labenu. 
 
-### `npm start`
+<img src='https://github.com/future4code/cruz-labe-food5/blob/master/src/assets/logofourfood.png?raw=true'  width= '30%' /> A ideia foi desenvolver um aplicativo parecido com o IFood, cujo usuário acessa sua conta, altera seus dados (caso já possua cadastrado), se for usuário novo é possível se cadastrar, faz os pedidos, acessa o carrinho de compras, finaliza a compra e verifica o tempo de espera do pedido. Para o desenvolvimento do projeto, foi utilizada a API: https://documenter.getpostman.com/view/7549981/SWTEdGtT .
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+</br>
+</br>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<img src= 'https://user-images.githubusercontent.com/77943169/116927678-5afffc00-ac32-11eb-87d1-aab6e7a5d162.png' width='55px'/>Integrantes:
 
-### `npm test`
+• Beatriz Lisboa
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+• Dayane Lang
 
-### `npm run build`
+• Guilherme Henrique Mota Alfredo
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+• João Vítor Alves de Mello Costa
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+• Leonardo Federmann
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+• Thiago Jatobá
 
-### `npm run eject`
+</br>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+🔗 <b>Link do Surge:</b></br>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<a href="labefood5-cruz.surge.sh">labefood5-cruz.surge.sh</a>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+</br>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#🎨 🧑 🎨 <b>Layout:</b>
 
-## Learn More
+• React JS
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+• React-Dom
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+• Styled Components 
 
-### Code Splitting
+• MaterialUi 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+• Axios
 
-### Analyzing the Bundle Size
+• Context
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+• API: https://documenter.getpostman.com/view/7549981/SWTEdGtT
 
-### Making a Progressive Web App
+• Trello: https://trello.com/invite/b/VZ2UWjyA/1c5f50f8c23c8f5c25161c11086f3d6a/template-kanban
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+• Zeplin: https://app.zeplin.io/project/5dd5ab8e5fb2a0060f81698f/screen/5dd5abb8053268bc95db6469
+</br>
+</br>
 
-### Advanced Configuration
+😎🌟 <b>O que Funciona:</b>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+• Página de Abertura (Teaser);
 
-### Deployment
+• Página HOME;
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+• Página de Login;
 
-### `npm run build` fails to minify
+• Página de Cadastro;
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+• Página para editar informações do usuário cadastrado;
+
+• Página de Detalhes dos Restaurantes;
+
+• Página de Carrinho;
+
+• Implementação de Data/Hora em tempo real;
+
+
+</br>
+❎ <b>O que não funciona:</b>
+
+• Footer instável;
+
+• Navegação ao criar ou editar perfil;
+
+• Ícone Home duplicado na página de perfil; 
